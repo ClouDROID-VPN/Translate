@@ -840,7 +840,7 @@ public MSG_NeedToBeInfrontYourHouse(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar em frente a sua casa para transforma-la em HQ!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You need to be in front of your house to turn it into an HQ!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Tienes que estar frente a tu casa para convertirla en un cuartel general!");
-  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Kinakailangang ikaw ay nasa-tapat ng iyong tahanan upang ito ay maging HQ!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Kinakailangang ikaw ay nasa-tapat ng iyong tahanan upang ito ay magawang HQ!");
 }
 forward MSG_ShowCurrentLevel(playerid, skillidefined);
 public MSG_ShowCurrentLevel(playerid, skillidefined) {
