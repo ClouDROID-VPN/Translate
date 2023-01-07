@@ -952,6 +952,9 @@ public MSG_VehicleCrashLicenseTest(playerid) {
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "¡Busque un taller de GPS para reparar este vehículo o puede fallar la prueba!");
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Maghanap ng GPS workshop para ayusin ang sasakyang ito o mabibigo ka sa pagsusulit!");
+  }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
@@ -961,32 +964,38 @@ public MSG_PressAltToTurnVehicle(playerid) {
   if(idiom[playerid] == 1)      { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Aperte 'ALT' para ligar o veiculo!");  }
   else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Press 'ALT' to turn on the vehicle!");  }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "¡Presiona 'ALT' para arrancar el vehículo!");  }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Pindutin ang 'ALT' upang mabuksan ang sasakyan");  }
 }
 forward MSG_PressQnEtoChangeWpVeh(playerid);
 public MSG_PressQnEtoChangeWpVeh(playerid) {
   if(idiom[playerid] == 1)      { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Aperte 'Q' ou 'E' trocar de arma!");  }
   else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Press 'Q' or 'E' to change your weapon!");  }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Pressione 'Q' ou 'E' para cambiar el arma!");  }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_LIGHTBLUE, "Pindutin ang 'Q' or 'E' upang magpalit ng sandata");  }
 }
 forward MSG_TazeInColldown(playerid);
 public MSG_TazeInColldown(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, -1, "Seu tazer não está carregado e pronto para uso.");
-  else if(idiom[playerid] == 2) SendClientMessage(playerid, -1, "You tazer is not charged and ready to use.");
+  else if(idiom[playerid] == 2) SendClientMessage(playerid, -1, "You tazer is not charged and not ready to use.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, -1, "Tu tazer no está cargado y listo para usar.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, -1, "Ang iyong tazer ay wala pang charge at hindi pa ito handang gamitin");
 }
 forward MSG_HandsupDamageReduction(playerid);
 public MSG_HandsupDamageReduction(playerid) {
   if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_LIGHTRED, "DANO REDUZIDO! ESSE JOGADOR ESTA RENDIDO!"); }
   else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_LIGHTRED, "REDUCED DAMAGE! THIS PLAYER IS RENDERED!"); }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_LIGHTRED, "¡DAÑO REDUCIDO! ¡ESTE JUGADOR ESTÁ RENDIDO!"); }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_LIGHTRED, "BAWASAN ANG PINSALA! ANG PLAYER NA ITO AY NAKA RENDERED!"); }
   if(IsACop(playerid)) {
       if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_LIGHTRED, "APENAS MIRE PARA ALGEMAR E LEVE PARA A CADEIA"); }
       else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_LIGHTRED, "JUST AIM FOR HANDCUFFS AND TAKE IT TO JAIL"); }
       else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_LIGHTRED, "SOLO APUNTA POR LAS ESPOSAS Y LláVALO A LA Cï¿½RCEL"); }
+      else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_LIGHTRED, "TUTUKAN UPANG MAPUSASAN AT DALIN ITO SA BILANGGUAN"); }
   } else {
       if(idiom[playerid] == 1) {  SendClientMessage(playerid, COLOR_LIGHTRED, "APENAS MIRE PARA ROUBAR OU AMARRAR E SEQUESTRAR"); }
       else if(idiom[playerid] == 2) {  SendClientMessage(playerid, COLOR_LIGHTRED, "JUST AIM TO STEAL OR TIE AND KIDNEW"); }
       else if(idiom[playerid] == 3) {  SendClientMessage(playerid, COLOR_LIGHTRED, "SOLO APUNTAR A ROBAR O AMARRAR Y KIDNEW"); }
+      else if(idiom[playerid] == 4) {  SendClientMessage(playerid, COLOR_LIGHTRED, "TUTUKAN UPANG MANAKAWAN O ITALI AT MA-KIDNAP"); }
   }
 }
 forward MSG_TrunkSlotBlockedForVehVIP(playerid);
@@ -994,18 +1003,21 @@ public MSG_TrunkSlotBlockedForVehVIP(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Slots 11-20 são apenas para veiculos VIP!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "Slots 11-20 are for VIP vehicles only!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Los espacios 11-20 son solo para vehículos VIP!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Slots 11-20 ay para lamang sa VIP vehicles");
 }
 forward MSG_StopTreasureHunt(playerid);
 public MSG_StopTreasureHunt(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você encerrou a Caça a Tesouros, Caça a Tesouros só podem ser feitas em barcos!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You've finished Treasure Hunting, Treasure Hunting can only be done on boats!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Has terminado Treasure Hunting, Treasure Hunting solo se puede hacer en barcos!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Natapos mo na ang Treasure Hunting, Ang Treasure Hunting ay pwede lang gawin kapag ikaw ay nasa banka!");
 }
 forward MSG_BlockedVehVIP(playerid);
 public MSG_BlockedVehVIP(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, -1, "[CARRO BLOQUEADO] Este é um carro VIP!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, -1, "[BLOCKED CAR] This is a VIP car!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, -1, "[COCHE BLOQUEADO] ¡Este es un coche VIP!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, -1, "[BLOCKED CAR] Ito ay isang VIP na kotse");
 }
 forward MSG_BlockedVehParamedic(playerid);
 public MSG_BlockedVehParamedic(playerid) {
