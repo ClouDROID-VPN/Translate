@@ -504,7 +504,7 @@ stock GetItemName(imodel, itype, idioma) {
         if(idioma == 1) format(str, sizeof(str), "Sementes de Cocaína (%i)", itype );
         else if(idioma == 2) format(str, sizeof(str), "Cocaine Seeds (%i)", itype );
         else if(idioma == 3) format(str, sizeof(str), "Semillas de Cocaína (%i)", itype );
-        else if(idioma == 4) format(str, sizeof(str), "Buto Cocaine (%i)", itype );
+        else if(idioma == 4) format(str, sizeof(str), "Buto ng Cocaine (%i)", itype );
     }
     else if(imodel == 312) {
         if(idioma == 1) format(str, sizeof(str), "Pasta de Cocaína (%i)", itype );
@@ -635,26 +635,26 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "LEIA O TUTORIAL PARA TER UMA IDEIA DE COMO É O SERVIDOR! PODE SER LONGO, MAS É UM MODO DE JOGO NOVO! VOCÊ NÃO VAI SE ARREPENDER!");
         else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "READ THE TUTORIAL TO HAVE AN IDEA OF HOW THE SERVER IS! MAY BE LONG BUT IT'S A NEW GAME MODE! YOU WILL NOT REGRET!");
         else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡LEA EL TUTORIAL PARA HACERSE UNA IDEA DE CÓMO ES EL SERVIDOR! ¡PUEDE SER LARGO, PERO ES UN NUEVO MODO DE JUEGO! ¡NO TE ARREPENTIRÁS!");
-        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "BASAHIN NG MABUTI ANG TUTORIAL NA ITO PARA MAGKAROON NG IDEYA KUNG PAPAANO ANG SISTEMA NG SERVER BAGONG GAMEMODE HINDE KA MAGISISISI!");
+        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "BASAHIN NG MABUTI ANG TUTORIAL NA ITO UPANG MAGKAROON NG IDEYA KUNG PAPAANO GUMAGANA ANG SISTEMA NG BAGONG GAMEMODE SERVER HINDE KA MAGISISISI!");
     }
     new string[128];
     if(tutorialStepId == 1) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Bem vindo ao ~y~Intense Life~w~! ~y~Novo modo de jogo!~w~ Voce nunca viu nada parecido! Servidor Unico!");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Welcome to ~y~Intense Life~w~New game mode!~w~ You've never seen anything like it! Single Server!");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Bienvenido a ~y~Intense Life~way~¡Nuevo modo de juego!~w~ ¡Nunca has visto nada igual! ¡Servidor único!");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Welcome to ~y~Intense Life~w~New game mode!~w~ You've never seen anything like it! Single Server!");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Maligayang pagdating sa ~y~Intense Life~w~New game mode!~w~ Ngayon lang kayo makakakita ng ganitong Single Server!");
     }
     else if(tutorialStepId == 2) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Um ~y~mundo livre e aberto~w~ com diversas coisas para realizar e conquistar.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Welcome to ~y~Intense Life~w~New game mode!~w~ You've never seen anything like it! Single Server!");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Un ~y~mundo libre y abierto~w~ con muchas cosas por lograr y conquistar.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Welcome to ~y~Intense Life~w~New game mode!~w~ You've never seen anything like it! Single Server!");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Maligayang pagdating sa ~y~Intense Life~w~New game mode!~w~ Ngayon lang kayo makakakita ng ganitong Single Server!");
     }
     else if(tutorialStepId == 3) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Servidor ~y~sem regras~w~ você ira responder por suas acoes pela dinamica de jogo!");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Server ~y~no rules~w~ you will answer for your actions by the game dynamics!");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Servidor ~y~sin reglas~w~ ¡seras responsable de tus acciones segun la dinámica del juego!");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Itong Server ~y~ ay walang rules~w~ ikaw na sasagot sa iyong mga aksyon ayon sa game dynamics!");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Itong Server ~y~ ay walang rules~w~ ikaw ang sasagot sa iyong mga aksyon ayon sa game dynamics!");
     }
     else if(tutorialStepId == 4) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Você pode reagir a qualquer assalto, sequestro ou coisas do tipo, ~y~não será punido por admins~w~ como em outros servidores.");
@@ -666,13 +666,13 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Mas ~y~as vezes e melhor se render~w~ a prisao/assalto/sequestro~n~tendo como bonus reducao no tempo e na perda de skills.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~But ~y~sometimes it better to surrender~w~ to jail/robbery/kidnapping~n~as a bonus in reducing time and skill loss.");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Puede reaccionar ante cualquier robo, secuestro o similar, ~y~no sera castigado por los administradores~w~ como en otros servidores.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Pero ~y~minsan mas mabuting sumuko nalang~w~ sa jail/robbery/kidnapping~n~ para sa bonus na pagbawas ng oras at pagkawala ng skill.");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Pero ~y~minsan mas mabuting sumuko nalang~w~ sa jail/robbery/kidnapping~n~ upang makabawas ng oras at pagkawala ng skill.");
     }
     else if(tutorialStepId == 6) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Ao zerar sua vida voce vai ficar ~y~caido no chao~n~~w~podendo ser assaltado,morto,sequeestrado,preso e até mesmo levantado.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~By zeroing your life you will be ~y~fallen to the ground~n~~w~and can be robbed,killed,kidnapped,arrested and even lifted.");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Cuando termines tu vida seras ~y~caido al suelo~n~~w~y pueden robarte, matarte, secuestrarte, arrestarte e incluso levantarte.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Kapag na zero ang yung buhay ~y~ikaw ay mag i-istay sa lapag~n~~w~at pwede kang nakawan,patayin,arestohin,at buhatin.");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Kapag na ubos ang iyong buhay ~y~ikaw ay mananatili sa lapag~n~~w~at pwede kang nakawan,patayin,arestohin,at buhayin.");
     }
     else if(tutorialStepId == 7) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Quando ~y~desconectar~w~ do servidor seu personagem ira ficar ~y~dormindo~w~ no chao, podendo ser roubado, preso e ate morto..."); // ... não aparece pq no 'o' do morto chegou no limite
@@ -684,49 +684,49 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Mesmo automatico, o servidor não deixa de ser ~y~realista~w~, como por exemplo o sistema de cadaver:");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Even automatic, the server is nonetheless ~y~realistic~w~, such as the cadaver system:");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Incluso automatico, el servidor sigue siendo ~y~realista~w~, como el sistema de cadaver:");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Even automatic, the server is nonetheless ~y~realistic~w~, such as the cadaver system:");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Kahit automatiko ang server ito ay ~y~Makatotohanan~w~, tulad ng cadaver system:");
     }
     else if(tutorialStepId == 9) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Ao matar alguem pegue o ~y~cadaver~w~ e desove na agua ou a policia podera investigar e te achar como culpado.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~When killing someone take ~y~cadaver~w~ and spawn in the water or the police can investigate and find you guilty.");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~ Al matar a alguien, toma el ~y~cadaver~w~ y tiralo al agua o la policía puede investigar y encontrarte culpable.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Kapag ikaw ay pumatay kumuha ka ng ~y~cadaver~w~ at ilagay sa bangkay dahil ang pulis maaaring mag imbestiga at ikaw ay makakasuhan.");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Kapag ikaw ay pumatay maari mong ~y~Itago/Kuhain~w~ ang bangkay, dahil ang mga pulis ay maaaring mag imbestiga at ikaw ay makakasuhan.");
     }
     else if(tutorialStepId == 10) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~PvP unico~w~: danos altos e realistas que variam de acordo com a aerea que pega: cabeça,peito,pernas,ombros");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~y~Unique PvP~w~: high and realistic damage that varies according to the area it picks up: head, chest, legs, shoulders");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~y~Unique PvP~w~: dano alto y realista que varia segun la aérea que toma: cabeza, pecho, piernas, hombros");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~Unique PvP~w~: mataas at realistic damage depende kung saan ito tatama sa: Ulo, Dibdib, Hita, Balikat");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~Unique PvP~w~: mataas at makatotohanan ang pinsala depende kung saan ito tatama: Ulo, Dibdib, Hita, Balikat");
     }
     else if(tutorialStepId == 11) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Mais de 50 ~y~Novas Armas~w~ com danos variados~n~~y~Novas Bombas~w~ como: flashbang, c4, smoke grenade...");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Over 50 ~y~New Weapons~w~ with miscellaneous damage~n~~y~New Bombs~w~ like: flashbang, c4, smoke grenade...");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Más de 50 ~y~Nuevas armas~w~ con varios daños~n~~y~Nuevas bombas~w~ como: flashbang, c4, granada de humo...");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Over 50 ~y~New Weapons~w~ with miscellaneous damage~n~~y~New Bombs~w~ like: flashbang, c4, smoke grenade...");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Mahigit sa 50 ang ~y~Bagong mga Baril~w~ na mayroong ibat ibang pinsala~n~~y~New Bombs~w~ tulad ng: flashbang, c4, smoke grenade...");
     }
     else if(tutorialStepId == 12) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~ANTI-DM~w~ inocente sem razao causa punicao automatica! Existem sistemas de ~y~Abordagem Policial~w~ e ~y~Assalto");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~y~ANTI-DM~w~ inescent for no reason causes automatic punishment! Are There~y~ Police Approach~w~ and ~y~Assault Systems");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~y~ANTI-DM~w~ ¡Inocente sin razón causa castigo automático! Hay ~y~Aproximación policial~w~ y ~y~Sistemas de asalto");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~ANTI-DM~w~ inescent for no reason causes automatic punishment! Are There~y~ Police Approach~w~ and ~y~Assault Systems");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~ANTI-DM~w~ Mayroong~y~ Police Approach~w~ at ~y~Assault Systems. Manakit ng walang dahilan ay automatikong mapaparusahan!");
     }
     else if(tutorialStepId == 13) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~ANTI-CHEAT PRO~w~. Se estava procurando um servidor livres de hacks finalmente achou, investimos muito nisso.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~y~ANTI-CHEAT PRO~w~. If you were looking for a hack-free server, you finally found it, we invested a lot in it.");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~y~PROTECCIÓN ANTITRAMPAS~w~. Si estaba buscando un servidor libre de piratería, finalmente lo encontró, invertimos mucho en él.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~ANTI-CHEAT PRO~w~. Kapag naghahanap ka ng Hack free server, Ito na yun, nag invest kami ng marami dito.");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~ANTI-CHEAT PRO~w~. Kapag naghahanap ka ng Hack free server, Ito na yun, ngunit kami ay mag-iimbistiga at may-sapat na parusa.");
     }
     else if(tutorialStepId == 14) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Servidor focado em ~y~niveis de habilidade~w~, ~y~SKILLS~n~~w~Existem diversas SKILLs, ex: crime,policial,pesca,mecanica...");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Server focused on ~y~skill levels~w~,~y~SKILLS~n~~w~There are several SKILLs, ex: crime,police,fishing,mechanics...");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Servidor enfocado en ~y~niveles de habilidad~w~, ~y~HABILIDADES~n~~w~Hay varias HABILIDADES, ej: crimen, policía, pesca, mecánica...");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Ang server focused sa ~y~skill levels~w~,~y~SKILLS~n~~w~meron pang ibat-ibang SKILLs, ex: crime,police,fishing,mechanics...");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Ang server ay nakatuon sa iyong ~y~skill levels~w~,~y~SKILLS~n~~w~. meron pang ibat-ibat skills tulad ng: crime,police,fishing,mechanics...");
     }
     else if(tutorialStepId == 15) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Subindo seus SKILLs você ~y~desbloqueia ações ~w~e ~y~aumenta eficacia/lucro das ações~w~ que já pode fazer.");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Raising your SKILLs you ~y~ unlocks actions ~w~and ~y~increases the effectiveness/profitability of the~w~ actions you can already do.");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Actualizando tus HABILIDADES ~y~desbloqueas acciones ~w~y ~y~aumentas la efectividad/beneficio de las acciones~w~ que ya puedes hacer.");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Sa pagpapalakas ng iyong SKILLs~y~ pwede mo ma unlock ~w~at ~y~mapataas ang effectiveness/profitability ng mga~w~ aksyon mo na pwede magawa.");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Sa pagpapalakas ng iyong SKILLs~y~ pwede mo ma unlock ~w~at ~y~mapataas ang kakayahan at epektibo ng mga~w~ aksyon na pwede magawa.");
     }
     else if(tutorialStepId == 16) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~Empregos e ORGs:~w~você pode ser desde um piloto de aviao,caminhoneiro ate um assaltante ou policial...");
@@ -738,13 +738,13 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Cada emprego te dará uma habilidade nova, exemplos:~w~~n~~w~Vendedor de Armas~n~~y~(montar armas unicas)");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Each job will give you a new skill, examples:~w~~n~~w~Weapon Salesman~n~~y~(build unique weapons)");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Cada trabajo te dará una nueva habilidad, ejemplos:~w~~n~~w~Vendedor de armas~n~~y~(construir armas ï¿½nicas)");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Each job will give you a new skill, examples:~w~~n~~w~Weapon Salesman~n~~y~(build unique weapons)");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Sa bawat trabaho ay mabibigyan ka ng bagong skill, Halimbawa:~w~~n~~w~Weapon Dealer~n~~y~(makagawa ng kakaibang sandata)");
     }
     else if(tutorialStepId == 18) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Ladrão de Veiculos~n~~y~(ligação direta em carros)~n~~w~Advogado~n~~y~(soltar presos antes da hora)~n~~w~e varios outros...");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Vehicle Thief~n~~y~(direct car connection)~n~~w~Lawyer~n~~y~(release arrested early)~n~~w~and several others...");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Ladrón de vehículos~n~~y~(marcación directa en automóviles)~n~~w~Abogado~n~~y~(liberar a los prisioneros demasiado pronto)~n~~w~y varios otros...");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Vehicle Thief~n~~y~(direct car connection)~n~~w~Lawyer~n~~y~(release arrested early)~n~~w~and several others...");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Vehicle Thief~n~~y~(direct car connection)~n~~w~Lawyer~n~~y~(makapag-palaya ng bilango sa maikling oras)~n~~w~at iba pa...");
     }
     else if(tutorialStepId == 19) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~Quase todos os empregos tem SKILLs~n~~w~ex:Mecanico, certo level libera tunning, neon, nitro, reparo mais rapido.");
@@ -756,19 +756,19 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Policiais com mais SKILLs tem ~y~acesso a melhores:~n~~w~Armas,Veiculos.~n~ORGS:~y~PD-FBI-CIA-SWAT-GN");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Police with more SKILLs have ~y~access to better:~n~~w~Guns,Vehicles.~n~ORGS:~y~PD-FBI-CIA-SWAT-GN");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Policias con mas SKILLs tienen~y~acceso a mejores:~n~~w~Armas,Vehiculos.~n~ORGS:~y~PD-FBI-CIA-SWAT-GN");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Police with more SKILLs have ~y~access to better:~n~~w~Guns,Vehicles.~n~ORGS:~y~PD-FBI-CIA-SWAT-GN");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Pulis na mayroong mataas na SKILLs ay merong ~y~access sa mas maganda tulad ng:~n~~w~Baril,Sasakyan.~n~ORGS:~y~PD-FBI-CIA-SWAT-GN");
     }
     else if(tutorialStepId == 21) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Você pode comprar diversos bens,como por exemplo:~y~~n~carros~n~motos~n~barcos~n~aeronaves~n~casas~n~empresas");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~You can buy various goods such as: ~y~~n~cars~n~motorcycles~n~boats~n~aircraft~n~houses~n~companies");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~Puedes comprar varios productos, por ejemplo:~y~~n~automï¿½viles~n~motocicletas~n~barcos~n~aviones~n~casas~n~negocios");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~You can buy various goods such as: ~y~~n~cars~n~motorcycles~n~boats~n~aircraft~n~houses~n~companies");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~Maari kang makabili ibat ibat bagay tulad ng: ~y~~n~cars~n~motorcycles~n~boats~n~aircraft~n~houses~n~companies");
     }
     else if(tutorialStepId == 22) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~Junte-se a uma facção ~w~ou ~y~crie a sua propria~w~~n~só precisa de membros, dinheiro e uma casa para transformar em HQ");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~y~Join a faction ~w~or ~y~create your own~w~~n~only needs members, money and a house to turn into HQ");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~y~Únete a una facción ~w~o ~y~crea la tuya propia~w~~todo lo que necesitas son miembros, dinero y una casa para convertirla en un cuartel general");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~Sumali sa faction ~w~o ~y~ gumawa ng iyong sarili~w~~n~kailangan lang ng members, pera at bahay para gawing HQ");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~y~Sumali sa faction ~w~o ~y~ gumawa ng iyong sarili~w~~n~kailangan lang ng myembro, pera at bahay para gawing HQ");
     }
     else if(tutorialStepId == 23) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~y~Gerencie:~w~~n~membros~n~cargos~n~salarios~n~taxas~n~armamentos~n~veiculos~n~drogas~n~domine gangzones~n~gerencie gangzones");
@@ -780,7 +780,7 @@ public MSG_InTutorial(playerid, tutorialStepId, timeMSG) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"~w~Explore o servidor, Faca as missoes para ganhar bonus de XP,SKILL,DINHEIRO e conhecer tudo do servidor! ~y~/mission");
         else if(idiom[playerid] == 2) format(string,sizeof(string),"~w~Explore the server, do the quests to earn XP, SKILL, MONEY bonuses and get to know everything from the server!~y~/mission");
         else if(idiom[playerid] == 3) format(string,sizeof(string),"~w~¡Explora el servidor, realiza las misiones para ganar XP, HABILIDAD, DINERO adicionales y conoce todo sobre el servidor! ~y~/mision");
-        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~I explore ang server, gawin ang quests para sa XP, SKILL, MONEY bonuses and get to know everything from the server!~y~/mission");
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"~w~I explore ang server, gawin ang quests para sa XP, SKILL, MONEY bonuses at malaman ang lahat tungkol sa server!~y~/mission");
     }
     GameTextForPlayerEx(playerid, string, timeMSG, 3);
 }
@@ -790,7 +790,7 @@ public MSG_AccountBanned(playerid, Float:horas) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Essa conta está banida e o banimento dela expira em: %.1f horas.", horas);
   else if(idiom[playerid] == 2) format(str, sizeof str, "This account is banned and its ban expires in: %.1f hours.", horas);
   else if(idiom[playerid] == 3) format(str, sizeof str, "Esta cuenta está prohibida y su prohibición vence en: %.1f horas.", horas);
-  else if(idiom[playerid] == 4) format(str, sizeof str, "This account is banned and its ban expires in: %.1f hours.", horas);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ang account na ito ay banned at ang ban expires nito ay: %.1f hours.", horas);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_FailPasswordBlockLogin(playerid);
@@ -799,7 +799,7 @@ public MSG_FailPasswordBlockLogin(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Você errou muitas vezes a senha, o ANTI CHEAT bloqueou seu endereço IP por 30 minutos para proteger essa conta. Por favor, espere e volte mais tarde.");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"You have often misplaced your password, ANTI CHEAT has blocked your IP address for 30 minutes to protect this account. Please wait and come back later.");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"Te equivocaste de contraseña muchas veces, ANTI CHEAT ha bloqueado tu dirección IP durante 30 minutos para proteger esta cuenta. Por favor, espere y vuelva más tarde.");
-  else if(idiom[playerid] == 4) format(str,sizeof(str),"You have often misplaced your password, ANTI CHEAT has blocked your IP address for 30 minutes to protect this account. Please wait and come back later.");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Madalas na pagkakamali sa paglagay ng password, ANTI CHEAT has blocked your IP address sa loob ng 30 minutes upang ma-protektahan ang account ito. Maaring maghitay at bumalik nalamang.");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"BRUTE PASSATK PROTECT",str,"Ok","");
 }
@@ -809,7 +809,7 @@ public MSG_RemovedFromStaff(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você foi retirado da staff!");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You have been removed from the staff!");
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡Has sido eliminado del personal!");
-  else if(idiom[playerid] == 4) format(str, sizeof str, "You have been removed from the staff!");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ikaw ay natanggal sa pagiging staff!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_RemovedFromFaction(playerid);
@@ -818,7 +818,7 @@ public MSG_RemovedFromFaction(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você foi demitido da sua antiga facções!");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You've been fired from your former factions!");
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡Te han despedido de tus antiguas facciones!");
-  else if(idiom[playerid] == 4) format(str, sizeof str, "You've been fired from your former factions!");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ikaw ay tinangal sa dating mong factions!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_VipIsOver(playerid);
@@ -826,21 +826,21 @@ public MSG_VipIsOver(playerid) {
   if(idiom[playerid] == 1) {  SendClientMessage(playerid, COLOR_LIGHTRED, "Sua VIP expirou!"); }
   else if(idiom[playerid] == 2) {  SendClientMessage(playerid, COLOR_LIGHTRED, "Your VIP expired!"); }
   else if(idiom[playerid] == 3) {  SendClientMessage(playerid, COLOR_LIGHTRED, "Su VIP caducado!"); }
-  else if(idiom[playerid] == 4) {  SendClientMessage(playerid, COLOR_LIGHTRED, "Your VIP expired!"); }
+  else if(idiom[playerid] == 4) {  SendClientMessage(playerid, COLOR_LIGHTRED, "Ang iyong VIP ay expired na!"); }
 }
 forward MSG_AlreadyHaveFactionName(playerid);
 public MSG_AlreadyHaveFactionName(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Já existe uma facção com esse nome! Escolha outro nome!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "A faction with that name already exists! Choose another name!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Ya existe una facción con ese nombre! ¡Elige otro nombre!");
-  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "A faction with that name already exists! Choose another name!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Ang pangalan ng Faction na ito ay nagamit na! Gumamit ng ibang pangalan!");
 }
 forward MSG_NeedToBeInfrontYourHouse(playerid);
 public MSG_NeedToBeInfrontYourHouse(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você precisa estar em frente a sua casa para transforma-la em HQ!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You need to be in front of your house to turn it into an HQ!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Tienes que estar frente a tu casa para convertirla en un cuartel general!");
-  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "You need to be in front of your house to turn it into an HQ!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Kinakailangang ikaw ay nasa-tapat ng iyong tahanan upang ito ay maging HQ!");
 }
 forward MSG_ShowCurrentLevel(playerid, skillidefined);
 public MSG_ShowCurrentLevel(playerid, skillidefined) {
