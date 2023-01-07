@@ -1024,12 +1024,14 @@ public MSG_BlockedVehParamedic(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, -1, "[CARRO BLOQUEADO] Este é um carro PARAMÉDICO!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, -1, "[BLOCKED CAR]This is a PARAMEDIC car!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, -1, "[COCHE BLOQUEADO] ¡Este es un coche PARAMÉDICO!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, -1, "[BLOCKED CAR]Ito ay isang PARAMEDIC na kotse");
 }
 forward MSG_FollowMapCheckPoint(playerid);
 public MSG_FollowMapCheckPoint(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, -1, "Siga até o checkpoint marcado no mapa!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, -1, "Go to the checkpoint marked on the map!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, -1, "¡Ve al punto de control marcado en el mapa!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, -1, "Puntahan ang checkpoint marked na nasa mapa!");
 }
 forward MSG_FinishTrainRoutes(playerid, price);
 public MSG_FinishTrainRoutes(playerid, price) {
@@ -1037,6 +1039,7 @@ public MSG_FinishTrainRoutes(playerid, price) {
   if(idiom[playerid] == 1) format(str, sizeof str, "(%i$) você terminou as rotas, aguarde até o próximo pagamento.", price);
   else if(idiom[playerid] == 2) format(str, sizeof str, "(%i$) you have finished the routes, wait until the next payment.", price);
   else if(idiom[playerid] == 3) format(str, sizeof str, "(%i$) has terminado las rutas, espera hasta el próximo pago.", price);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "(%i$) Natapos mo na ang ruta, hintayin lamang ang sunod na bayad", price);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_Hungry(playerid);
@@ -1045,6 +1048,7 @@ public MSG_Hungry(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você está com muita FOME para correr ou pular, procure um lugar para COMER (/gps)");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You're too HUNGRY to run or jump, look for a place to EAT (/gps)");
   else if(idiom[playerid] == 3) format(str, sizeof str, "Tienes demasiada HAMBRE para correr o saltar, busca un lugar para COMER (/gps)");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Masyado kanang GUTOM upang tumakbo o tumalon, humanap ng lugar na mapagkakainan (/gps)");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_Thirst(playerid);
@@ -1053,6 +1057,7 @@ public MSG_Thirst(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você está com muita SEDE para correr ou pular, procure um lugar para BEBER (/gps)");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You're too THIRTY to run or jump, look for a place to DRINK (/gps)");
   else if(idiom[playerid] == 3) format(str, sizeof str, "Tienes TREINTA para correr o saltar, busca un lugar para BEBER (/gps)");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Masyado kanang UHAW upang tumakbo o tumalon, humanap ng lugar na mapagiinuman (/gps)");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_Breath(playerid);
@@ -1061,6 +1066,7 @@ public MSG_Breath(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você está sem FOLEGO para correr ou pular, procure um lugar para DESCANSE (/gps)");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You're out of BREATH to run or jump, find a place to REST (/gps)");
   else if(idiom[playerid] == 3) format(str, sizeof str, "No tienes ALIENTO para correr o saltar, busca un lugar para DESCANSAR (/gps)");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Wala kanang sapat na HININGA upang tumakbo o tumalon, humanap ng lugar upang makapag-pahinga (/gps)");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_CopsCantUseCommandINTnVW(playerid);
@@ -1069,10 +1075,12 @@ public MSG_CopsCantUseCommandINTnVW(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "COPs não podem usar esse comando em Interior e Virtual World!");
   else if(idiom[playerid] == 2) format(str, sizeof str, "COPs cannot use this command in Interior and Virtual World!");
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡Los COP no pueden usar este comando en Interior y Virtual World!");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "COPs ay hindi pwedeng gamitin ang command na ito sa Interior at Virtual World!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   if(idiom[playerid] == 1) format(str, sizeof str, "(se não estiver em um, entre e saia de uma loja)");
   else if(idiom[playerid] == 2) format(str, sizeof str, "(if not in one, enter and exit a store)");
   else if(idiom[playerid] == 3) format(str, sizeof str, "(si no en uno, entrar y salir de una tienda)");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "(kung hindi sa isa, maaaring pumasok at lumabas sa store)");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_CantUseCommandINTnVW(playerid);
@@ -1081,24 +1089,28 @@ public MSG_CantUseCommandINTnVW(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você não pode usar esse comando em Interior e Virtual World!");
   else if(idiom[playerid] == 2) format(str, sizeof str, "You cannot use this command in Interior and Virtual World!");
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡No puede usar este comando en Interior y Virtual World!");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Hindi pwedeng gamitin ang command na ito sa Interior at Virtual World!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   if(idiom[playerid] == 1) format(str, sizeof str, "(se não estiver em um, entre e saia de uma loja)");
   else if(idiom[playerid] == 2) format(str, sizeof str, "(if not in one, enter and exit a store)");
   else if(idiom[playerid] == 3) format(str, sizeof str, "(si no en uno, entrar y salir de una tienda)");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "(kung hindi sa isa, maaaring pumasok at lumabas sa store)");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DriveByWithoutDriver(playerid);
 public MSG_DriveByWithoutDriver(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "NÃO FAÇA DB SEM MOTORISTA! NÃO É PERMITIDO!");
-  else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "DONT DO DB WITHOUT DRIVER! ITS NOW ALLOWED!");
+  else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "DONT DO DB WITHOUT DRIVER! ITS NOT ALLOWED!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡NO HAGAS DB SIN UN CONDUCTOR! ¡NO ES PERMITIDO!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "WAG MONG GAWIN ANG DB KUNG WALA ANG DRIVER! HINDI ITO PINAPAYAGAN!");
 }
 forward MSG_NoLicenseA(playerid);
 public MSG_NoLicenseA(playerid) {
     new string[256];
     if(idiom[playerid] == 1) format(string,sizeof(string),"Você não tem a licença de motorista A\nA= Motos\nPara alugar uma FAGGIO você não precisa de nenhuma licença\nUse: /gps (Centro de Licenças) para tirar sua licença!");
-    else if(idiom[playerid] == 2) format(string,sizeof(string),"You don't have a driver's license A\nA= Motorcycles\nTo rent a FAGGIO you don't need any license\nUse: /gps (License Centre) to get your license!");
+    else if(idiom[playerid] == 2) format(string,sizeof(string),"You don't have a driver's license A\nA= Motorcycles\nTo rent a FAGGIO you don't need any license\nUse: /gps (License Center) to get your license!");
     else if(idiom[playerid] == 3) format(string,sizeof(string),"No tienes licencia de conducir A\nA= Motocicletas\nPara alquilar una FAGGIO no necesitas ninguna licencia\nUsa: /gps (Centro de licencias) para obtener tu licencia!");
+    else if(idiom[playerid] == 4) format(string,sizeof(string),"Ikaw ay walang lisensya upang magmaneho ng A\nA= Motorsiklo\nHindi mo kinakailangan ng lisensya upang mag-rent ng FAGGIO\nUse: /gps (License Center) upang kumuha ng lisensya!");
     ShowPlayerDialog(playerid,420,DIALOG_STYLE_MSGBOX,"Rent Without GroundLicense",string,"Ok","");
 }
 forward MSG_NoLicenseB(playerid);
@@ -1107,22 +1119,25 @@ public MSG_NoLicenseB(playerid) {
     if(idiom[playerid] == 1) format(string,sizeof(string),"Você não tem a licença de motorista B\nB= Carros\nPara alugar uma FAGGIO você não precisa de nenhuma licença\nUse: /gps (Centro de Licenças) para tirar sua licença!");
     else if(idiom[playerid] == 2) format(string,sizeof(string),"You don't have a driver's license B\nB= Cars\nTo rent a FAGGIO you don't need any license\nUse: /gps (License Centre) to get your license!");
     else if(idiom[playerid] == 3) format(string,sizeof(string),"No tienes licencia de conducir B\nB= Coches\nPara alquilar un FAGGIO no necesitas ninguna licencia\nUsa: /gps (Centro de Licencias) para obtener tu licencia!");
+    else if(idiom[playerid] == 4) format(string,sizeof(string),"Ikaw ay walang lisensya upang magmaneho ng A\nA= Kotse\nHindi mo kinakailangan ng lisensya upang mag-rent ng FAGGIO\nUse: /gps (License Center) upang kumuha ng lisensya!");
     ShowPlayerDialog(playerid,420,DIALOG_STYLE_MSGBOX,"Rent Without GroundLicense",string,"Ok","");
 }
 forward MSG_DontHaveDonatePoints(playerid, value);
 public MSG_DontHaveDonatePoints(playerid, value) {
   new str[128];
   if(idiom[playerid] == 1) format(str, sizeof str, "Você não tem %i Doar Pontos", value);
-  else if(idiom[playerid] == 2) format(str, sizeof str, "You don't have %i Donate Points", value);
+  else if(idiom[playerid] == 2) format(str, sizeof str, "You don't have enough %i Donate Points", value);
   else if(idiom[playerid] == 3) format(str, sizeof str, "No tienes %i Donar Puntos", value);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ikaw ay walang sapat na %i Donate Points", value);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DontHaveMoney(playerid, value);
 public MSG_DontHaveMoney(playerid, value) {
   new str[128];
   if(idiom[playerid] == 1) format(str, sizeof str, "Você não tem %i$", value);
-  else if(idiom[playerid] == 2) format(str, sizeof str, "You don't have %i$", value);
+  else if(idiom[playerid] == 2) format(str, sizeof str, "You don't have enough%i$", value);
   else if(idiom[playerid] == 3) format(str, sizeof str, "No tienes %i$", value);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ikaw ay walang sapat na%i$", value);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DontHaveWeaponMaterial(playerid, value);
@@ -1131,14 +1146,16 @@ public MSG_DontHaveWeaponMaterial(playerid, value) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você não tem %i Material de Arma", value);
   else if(idiom[playerid] == 2) format(str, sizeof str, "You don't have %i Weapon Material", value);
   else if(idiom[playerid] == 3) format(str, sizeof str, "No tienes %i material de arma", value);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Ikaw ay walang sapat na %i Weapon Material", value);
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DontHaveSkillToMakeWeapon(playerid, skills_needed);
 public MSG_DontHaveSkillToMakeWeapon(playerid, skills_needed) {
   new str[128];
   if(idiom[playerid] == 1) format(str, sizeof(str), "Você tem %i nível de Vendedor de Armas, para fazer esta arma você precisa de %i nível de Revendedor de Armas.", GetLevelInXp(WEAPONDEALLERskills[playerid]), GetLevelInXp(skills_needed) );
-  else if(idiom[playerid] == 2) format(str, sizeof(str), "You have %i Weapon Dealler level, to make this weapon you need %i Weapon Dealler level.", GetLevelInXp(WEAPONDEALLERskills[playerid]), GetLevelInXp(skills_needed) );
+  else if(idiom[playerid] == 2) format(str, sizeof(str), "You have %i Weapon Dealer level, to make this weapon you need %i Weapon Dealer level.", GetLevelInXp(WEAPONDEALLERskills[playerid]), GetLevelInXp(skills_needed) );
   else if(idiom[playerid] == 3) format(str, sizeof(str), "Tienes %i nivel de Vendedor de Armas, para fabricar esta arma necesitas %i nivel de distribuidor de armas.", GetLevelInXp(WEAPONDEALLERskills[playerid]), GetLevelInXp(skills_needed) );
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Mayroong kang %i Weapon Dealer level, upang magawa ang weapon na ito kailangan mo ng %i Weapon Dealer level.", GetLevelInXp(WEAPONDEALLERskills[playerid]), GetLevelInXp(skills_needed) );
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DontHaveSkillLevelToCMD(playerid, skillname[], value);
