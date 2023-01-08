@@ -1164,6 +1164,7 @@ public MSG_DontHaveSkillLevelToCMD(playerid, skillname[], value) {
   if(idiom[playerid] == 1) format(str, sizeof str, "Você deve estar no nível %s: %i para usar este comando!", skillname, GetLevelInXp(value));
   else if(idiom[playerid] == 2) format(str, sizeof str, "You to be %s level: %i to use this command!", skillname, GetLevelInXp(value));
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡Debes tener %s de nivel: %i para usar este comando!", skillname, GetLevelInXp(value));
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Kinakailangan ay %s level: %i upang magamit ang command na ito!", skillname, GetLevelInXp(value));
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_AlreadyHaveAllLicenses(playerid);
@@ -1171,18 +1172,21 @@ public MSG_AlreadyHaveAllLicenses(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você já tem todas as licenças!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You already have all licenses!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Ya tienes todas las licencias!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Nasaiyo na ang lahat ng lisensya!");
 }
 forward MSG_NeedPlayerOtherMarkToBet(playerid);
 public MSG_NeedPlayerOtherMarkToBet(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid,COLOR_LIGHTRED,"Você precisa de um parceiro na outra marca para fazer a aposta!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid,COLOR_LIGHTRED,"You need a partner on the other brand to place the bet!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid,COLOR_LIGHTRED,"¡Necesita un socio en la otra marca para hacer la apuesta!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid,COLOR_LIGHTRED,"kailangan mo ng isang partner sa kabilang panig upang maglagay ng taya!");
 }
 forward MSG_DontHaveSlotsInBag(playerid);
 public MSG_DontHaveSlotsInBag(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem Slots suficientes em sua bolsa.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You do not have Slots enough in your bag.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "No tienes suficientes tragamonedas en tu bolsa.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Ikaw ay walang sapat na Slot sa iyong bag");
 }
 forward MSG_NeedPeopleAroundToCreateFac(playerid, num_need);
 public MSG_NeedPeopleAroundToCreateFac(playerid, num_need) {
@@ -1196,6 +1200,9 @@ public MSG_NeedPeopleAroundToCreateFac(playerid, num_need) {
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "¡Necesitas %i jugadores que no tengan Facciones cerca de ti para iniciar Facciones!", num_need );
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Kinakailangan mo ng %i players na walang pang Factions na malapit sayo upang gumawa ng Factions!", num_need );
+  }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_NoDepotAcessEnough(playerid);
@@ -1204,6 +1211,7 @@ public MSG_NoDepotAcessEnough(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "Você não tem DEPOT_ACESS suficiente, escolha a última opção para comprar!");
   else if(idiom[playerid] == 2) format(str, sizeof(str), "You don't have enough DEPOT_ACESS, choose the last option to buy! ");
   else if(idiom[playerid] == 3) format(str, sizeof(str), "No tienes suficiente DEPOT_ACESS, elige la última opción para comprar.");
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Ikaw ay walang sapat na DEPOT_ACESS, piliin ang huling option upang makabili  ");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_AboutOrgs(playerid);
@@ -1251,6 +1259,19 @@ public MSG_AboutOrgs(playerid) {
         format(str, sizeof(str), "\n\nPuedes ver la lista de facciones del servidor en el sitio web.");
         strcat(final, str);
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Ang Orginisasyon ay hinahati sa dalawa:");
+        strcat(final, str);
+        format(str, sizeof(str), "\n\n1- Governmental Corporations, tulad ng LSPD,FBI,SWAT,NATIONAL GUARD,CIA,PARAMEDICS...");
+        strcat(final, str);
+        format(str, sizeof(str), "\nUpang makapasok sa orginisasyon, kinakailangan ng sapat na lisensya, pasensya at i-pasa ang pagsusulit sa bawat departamento (/gps)");
+        strcat(final, str);
+        format(str, sizeof(str), "\n\n2- Upang makagawa ng Factions, bumili lamang ng bahay at pindutin ang Y sa tapat ng pintuan at piliin ang option Create factions");
+        strcat(final, str);
+        format(str, sizeof(str), "\npumili ng pangalan at ang bahay na ito ang magiging HQ ng factions, makakaya mong gawing ang weapons, salary, drugs, dominate territories at marami pang iba");
+        strcat(final, str);
+        format(str, sizeof(str), "\n\nMaari mong tignan ang listahan ng Factions sa website.");
+        strcat(final, str);
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"ABOUT ORGS",final,"Ok","");
 }
 forward MSG_ImpossibleToDM(playerid);
@@ -1286,6 +1307,16 @@ public MSG_ImpossibleToDM(playerid) {
         format(str, sizeof(str), "\n\nPara comprender cómo funcionan el Modo de combate y Anti DM, lea el texto del comando: /antidm");
         strcat(final, str);
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "HINDI MAARING i-DM!");
+        strcat(final, str);
+        format(str, sizeof(str), "\n\nWalang manlalaro ang kaya kang patayin ng walang dahilan, kung ang manlalaro ay nakapag bigay ng pinsala sayo sa kadahilanang ikaw ay na sa combat mode,kung hindi man ang pinsala ay magiging 0.");
+        strcat(final, str);
+        format(str, sizeof(str), "\nAng patakaran ng server at pinapatupad ng server systems, aksyon at reaksyon, sanhi at bunga.");
+        strcat(final, str);
+        format(str, sizeof(str), "\n\nUpang malaman kung paano gumagana ang Combat Mode at Anti DM, basahin lamang ang command text: /antidm");
+        strcat(final, str);
+    }
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"IMPOSSIBLE ANTI DM",final,"Ok","");
 }
 forward MSG_TaskInfoModal(playerid);
@@ -1300,11 +1331,13 @@ public MSG_TaskInfoModal(playerid) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar Lojas] Faça assaltos a NPCs de empresa (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Robbing Shops] Robbery on company NPCs (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robo de tiendas] Robo de PNJ de la empresa (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Robbing Shops] Pagnanakaw sa company NPCs (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_roubar_atms) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar Caixas] Faça assaltos a Caixas Eletronicos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Stealing Boxes] Robbery ATMs (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robar cajas] Robo de cajeros automáticos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Stealing Boxes] Pagnanakaw sa ATMs (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_roubar_houses) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar Casas] Faça assaltos a Casas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
