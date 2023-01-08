@@ -1819,6 +1819,7 @@ public MSG_YouAreNotIn_A_VehicleName(playerid, vehid) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "Você não está em um veiculo do modelo: %s", getVehicleName(vehid) );
   else if(idiom[playerid] == 2) format(str, sizeof(str), "You are not in a model vehicle: %s", getVehicleName(vehid) );
   else if(idiom[playerid] == 3) format(str, sizeof(str), "No estás en un modelo de vehículo: %s", getVehicleName(vehid) );
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Ikaw ay wala sa model vehicle na ito: %s", getVehicleName(vehid) );
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_MotoboyReturnToBizzHiredYou(playerid);
@@ -1826,6 +1827,8 @@ public MSG_MotoboyReturnToBizzHiredYou(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Retorne até a empresa que te contratou para receber seu dinheiro e mais entregas!");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Return to the company that hired you to receive your money and more deliveries!");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "¡Regresa a la empresa que te contrató para recibir tu dinero y más entregas!");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Bumalik sa kompanya na nag hired sayo upang matanggap mo ang iyong pera at mas maraming deliveries!");
+  
 }
 forward MSG_MotoboyEntrega(playerid, value);
 public MSG_MotoboyEntrega(playerid, value) {
@@ -1833,24 +1836,28 @@ public MSG_MotoboyEntrega(playerid, value) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "+%i$! Bom trabalho! Agora vá entregar o outro pedido!", value );
   else if(idiom[playerid] == 2) format(str, sizeof(str), "+%i$! Good work! Now go deliver the other order!", value );
   else if(idiom[playerid] == 3) format(str, sizeof(str), "+%i$! ¡Buen trabajo! ¡Ahora ve a entregar el otro pedido!", value );
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "+%i$! Good work! Ngayon i-deliver na ang ibang order!", value );
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
   if(lcTerrestre[playerid] < 1) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Tire a Licença A (Moto) para receber mais dinheiro, vá até o Centro de Licenças tira-la (/gps)!");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Get License A (Motorcycle) to receive more money, go to the License Center to get it (/gps)!");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Obtenga la Licencia A (Motocicleta) para recibir más dinero, vaya al Centro de Licencias para obtenerla (/gps)!");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Kumuha ng License A (Motorcycle) upang makatanggap ng mas-maraming pera, pumunta lamang sa License Center upang kumuha nito (/gps)!");
   }
 }
 forward MSG_BusDriverTerminal(playerid, value);
 public MSG_BusDriverTerminal(playerid, value) {
   new str[128];
   if(idiom[playerid] == 1) format(str, sizeof(str), "+%i$! Bom trabalho! Agora vá entregar o outro pedido!", value );
-  else if(idiom[playerid] == 2) format(str, sizeof(str), "+%i$! Good work! Now go deliver the other order!", value );
+  else if(idiom[playerid] == 2) format(str, sizeof(str), "+%i$! Good work! Now go to other bus station to get a passenger!", value );
   else if(idiom[playerid] == 3) format(str, sizeof(str), "+%i$! ¡Buen trabajo! ¡Ahora ve a entregar el otro pedido!", value );
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "+%i$! Good work! Ngayon pumunta sa ibang stasyon ng bus upang kumuha ng pasahero!", value );
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
   if(lcTerrestre[playerid] < 1) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Tire a Licença A (Moto) para receber mais dinheiro, vá até o Centro de Licenças tira-la (/gps)!");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Get License A (Motorcycle) to receive more money, go to the License Center to get it (/gps)!");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Obtenga la Licencia A (Motocicleta) para recibir más dinero, vaya al Centro de Licencias para obtenerla (/gps)!");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Kumuha ng License A (Motorcycle) upang makatanggap ng mas-maraming pera, pumunta lamang sa License Center upang kumuha nito (/gps)!");
   }
 }
 forward MSG_BusStopTen(playerid, value);
@@ -1859,11 +1866,13 @@ public MSG_BusStopTen(playerid, value) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "Você terminou uma linha da rota! +%i$.", value );
   else if(idiom[playerid] == 2) format(str, sizeof(str), "You have completed a route line! +%i$", value );
   else if(idiom[playerid] == 3) format(str, sizeof(str), "¡Has completado una línea de ruta! +%i$", value );
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Na-kompleto mo na ang linya ng ruta! +%i$", value );
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
   if(lcTerrestre[playerid] < 3) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Tire a Licença C (Bus) para receber mais dinheiro, vá até o Centro de Licenças tira-la!");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Get C (Bus) License to get more money, go to License Center to get it!");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "¡Obtenga la licencia C (autobús) para obtener más dinero, vaya al Centro de licencias para obtenerla!");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Kumuha ng C (Bus) License upang makakuha ng mas-maraming pera, pumunta lamang sa License Center upang kumuha nito!");
   }
 }
 forward MSG_NoWormsToFish(playerid);
@@ -1880,6 +1889,10 @@ public MSG_NoWormsToFish(playerid) {
         SendClientMessage(playerid, COLOR_GREY, "No tienes señuelos de pesca comprar de un 24/7 (/gps y /buy)");
         SendClientMessage(playerid, COLOR_RED, "Se ha marcado un punto de control con el 24-7 más cercano en su mapa.");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_GREY, "Ikaw ay walang kahit anong fishing lures bumili lamang sa 24/7 (/gps and /buy)");
+        SendClientMessage(playerid, COLOR_RED, "Ang checkpoint na pinakamalapit na 24-7 ay naka-marka na sa iyong mapa.");
+    }
 }
 forward MSG_NoFishingRod(playerid);
 public MSG_NoFishingRod(playerid) {
@@ -1895,30 +1908,38 @@ public MSG_NoFishingRod(playerid) {
         SendClientMessage(playerid, COLOR_GREY, "No tienes caña de pescar cómprala en un 24/7 (/gps y /buy)");
         SendClientMessage(playerid, COLOR_RED, "Se ha marcado un punto de control con el 24-7 más cercano en su mapa.");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_GREY, "Ikaw ay walang kahit anong fishing rod bumili lamang sa 24/7 (/gps and /buy)");
+        SendClientMessage(playerid, COLOR_RED, "Ang checkpoint na pinakamalapit na 24-7 ay naka-marka na sa iyong mapa.");
+    }
 }
 forward MSG_YouAreNotOnWater(playerid);
 public MSG_YouAreNotOnWater(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você não está na água.");
-  else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You are not in water.");
+  else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You are not in the sea.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "No estás en el agua.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "Ikaw ay wala sa dagat");
 }
 forward MSG_YouAreNotSurfingABoat(playerid);
 public MSG_YouAreNotSurfingABoat(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você precisa estar surfando em um barco para usar esse comando.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You need to be surfing a boat to use this command.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "Necesitas estar navegando en un bote para usar este comando.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "Kinakailangan na ikaw ay nasa bangka upang magamit ang command na ito.");
 }
 forward MSG_YouCantBeSwimming(playerid);
 public MSG_YouCantBeSwimming(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você não pode estar nadando para usar esse comando.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You cannot be swimming to use this command.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "No puedes estar nadando para usar este comando.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "Hindi ka pwedeng lumangoy upang magamit at command na ito.");
 }
 forward MSG_CantBeInVehicle(playerid);
 public MSG_CantBeInVehicle(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você não pode usar esse comando em um Veiculo.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You cannot use this command on a Vehicle.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "No puede usar este comando en un vehículo.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "You cannot use this command on a Vehicle.");
 }
 forward MSG_YouAlreadyFishing(playerid);
 public MSG_YouAlreadyFishing(playerid) {
