@@ -1380,7 +1380,7 @@ public MSG_TaskInfoModal(playerid) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Abordagem] Faça abordagens policiais (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Approach] Make police approaches (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Aproximación] Hacer aproximaciones policiales (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
-        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Approach] Make police approaches (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Approach] Gawin ang tama bilang pulis (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_retornar_moveis_roubados) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Devolver Mobilia] Devolva moveis roubados para suas respectivas casas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
@@ -1451,7 +1451,7 @@ public MSG_TaskInfoModal(playerid) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Entrega de Produtos - Caminhoneiro] Faça entrega de produtos nas empresas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Product Delivery - Truck Driver] Deliver products to companies (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Entrega de productos - Camionero] Entregar productos a empresas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
-        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Product Delivery - Truck Driver] Mag deliver ng mga produkto sa mga companya(%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Product Delivery - Truck Driver] Mag deliver ng mga produkto sa mga kompanya(%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_vender_pedras_mineradas) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Vender Pedras Mineradas - Minerador] Minere pedras na mina e venda as pedras (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
@@ -1485,7 +1485,7 @@ public MSG_TaskInfoModal(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você não está fazendo nenhuma Task, vá até a prefeitura para pegar uma Task.");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You are not doing any Tasks, go to the Town Hall to get a Task.");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No estás haciendo ninguna Tarea, ve al Ayuntamiento para obtener una Tarea.");
-    else if(idiom[playerid] == 4) format(str, sizeof(str), "Wala kang ginagawa, pumunta sa Town Hall at kumuha ng gawain.");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Kung Wala kang ginagawa, pumunta sa Town Hall at kumuha ng gawain.");
     strcat(final, str);
   }
   // EXAUSTED:
@@ -1526,7 +1526,7 @@ public MSG_AntiDmQuestionsDialog(playerid) {
           format(str, sizeof(str), "Si quiero un lugar seguro (sin PVP) para hablar e intercambiar, ï¿½dï¿½nde debo ir?\n- Cuadrados rojos en el mapa, usando Y - GPS - GangZones\n- Cuadrados verdes en el mapa, usando Y - GPS - SafeZones\n- Granjas, usando Y - GPS - Granja");
       }
       else if(idiom[playerid] == 4) {
-          format(str, sizeof(str), "Kapag gusto ko sa safe na lugar (walang PVP) para kumausap at makipag negosasyon saan ako pupunta??\n- Red squares of the map, using Y - GPS - GangZones\n- Green squares of the map, using Y - GPS - SafeZones\n- Farms, using Y - GPS - Farm");
+          format(str, sizeof(str), "Kapag gusto ko sa safe na lugar (walang PVP) para kumausap at makipag negosasyon saan ako pupunta??\n- Red squares na makikita sa mapa, gamitin ang Y - GPS - GangZones\n- Green squares of th, gamitin ang Y - GPS - SafeZones\n- Farms, gamitin ang Y - GPS - Farm");
       }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 2", str, "Select", "");
   }
@@ -1541,7 +1541,7 @@ public MSG_AntiDmQuestionsDialog(playerid) {
           format(str, sizeof(str), "¡Cuï¿½ndo pueden matarme los policï¿½as?\n- Si solo soy buscado\n- Si solo soy buscado y LUCHAR\n- Si solo estoy armado.");
       }
       else if(idiom[playerid] == 4) {
-          format(str, sizeof(str), "Kailan ako pwedeng patayin ng pulis?\n- Kapag ako ay wanted lamang\n- kapag ako ay may wanted level at naka FIGHT\n- Kapag ako ay armado lamang");
+          format(str, sizeof(str), "Kailan ako pwedeng patayin ng pulis?\n- Kapag ako ay wanted lamang\n- kapag ako ay may wanted level at naka FIGHT mode\n- Kapag ako ay armado lamang");
       }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 3", str, "Select", "");
   }
@@ -1556,7 +1556,7 @@ public MSG_AntiDmQuestionsDialog(playerid) {
           format(str, sizeof(str), "Marque las opciones incorrectas:\n- Los policï¿½as pueden disparar ruedas de vehículos en persecuciï¿½n incluso sin PELEAR\n- Los delincuentes pueden destruir los vehículos de otros jugadores para robar incluso sin PELEAR\n- Puedo matar a un jugador solo por ofenderme");
       }
       else if(idiom[playerid] == 4) {
-          format(str, sizeof(str), "Piliin ang maling sagot:\n- Police officers can shoot vehicle wheels in pursuits even without FIGHT\n- Criminals can destroy other players' vehicles to make an assault even without FIGHT\n- I can kill a player just for offending me ");
+          format(str, sizeof(str), "Piliin ang maling sagot:\n- Ang Police officers ay pwedeng barilin ang gulong ng ano mang sasakyan kahit hindi ito naka-FIGHT mode\n- Ang mga Kriminal ay pwedeng manira ng sasakyan ng ibang player kahit hindi ito naka-FIGHT mode\n- Maari kong patayin ang player dahil ito ang gusto ko ");
       }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 4", str, "Select", "");
   }
@@ -1580,7 +1580,7 @@ public MSG_DeliveringWinningTicket(playerid, value) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Parabeńs!!! você entregou o bilhete premiado e recebeu %i$", value);
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Congratulations!!! You delivered the winning ticket and received %i$", value);
   else if(idiom[playerid] == 3) format(str,sizeof(str),"¡¡¡Feliz cumpleaños!!! entregaste el boleto ganador y recibiste %i$", value);
-  else if(idiom[playerid] == 4) format(str,sizeof(str),"Congratulations!!! You delivered the winning ticket and received %i$", value);
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Congratulations!!! Nanalo ang napili mong ticket at ikaw ay makakatanggap ng %i$", value);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_BizzCloseExausted(playerid, etime);
@@ -1599,7 +1599,7 @@ public MSG_BizzCloseExausted(playerid, etime) {
       SendClientMessage(playerid, COLOR_GREY, str);
   }
   else if(idiom[playerid] == 4) {
-      format(str, sizeof(str), "Pwede ka lamang mag BIZZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      format(str, sizeof(str), "Pwede ka lamang mag BIZZ CLOSE OPERATION %i sa loob ng %i minutos, maaring maghintay!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1619,7 +1619,7 @@ public MSG_GzCloseExausted(playerid, etime) {
       SendClientMessage(playerid, COLOR_GREY, str);
   }
   else if(idiom[playerid] == 4) {
-      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i sa loob %i minutos, maaring maghintay!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1639,7 +1639,7 @@ public MSG_HouseSeizureExausted(playerid, etime) {
       SendClientMessage(playerid, COLOR_GREY, str);
   }
   else if(idiom[playerid] == 4) {
-      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i sa loob ng %i minutos, maaring maghintay!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1659,7 +1659,7 @@ public MSG_HqSeizureExausted(playerid, etime) {
       SendClientMessage(playerid, COLOR_GREY, str);
   }
   else if(idiom[playerid] == 4) {
-      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i sa loob ng %i minutos, maaring maghintay!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1679,7 +1679,7 @@ public MSG_PlayerExaustedNpcBizzRob(playerid, etime) {
         SendClientMessage(playerid, COLOR_GREY, string);
     }
     else if(idiom[playerid] == 4) {
-        format(string, sizeof(string), "Pwede mong nakawan ang %i sa loob ng %i minuto NPC, Maghintay ka!", etime, etime);
+        format(string, sizeof(string), "Pwede mong nakawan ang %i sa loob ng %i minuto NPC, maaring maghintay!", etime, etime);
         SendClientMessage(playerid, COLOR_GREY, string);
     }
 }
@@ -1689,6 +1689,7 @@ public MSG_BizzExaustedNpcBizzRob(playerid) {
     if(idiom[playerid] == 1) format(string, sizeof(string), "Este NPC foi roubado recentemente! Espere alguns minutos para rouba-lo novamente!" );
     else if(idiom[playerid] == 2) format(string, sizeof(string), "This NPC was robbed recent! Wait some minutes to steal it again!" );
     else if(idiom[playerid] == 3) format(string, sizeof(string), "¡Este NPC fue robado recientemente! ï¿½Espera unos minutos para volver a robarlo!" );
+    else if(idiom[playerid] == 4) format(string, sizeof(string), "Ang NPC na ito ay nanakawan na! Maghintay lamang ng ilang minuto upang ito ay manakawang muli!" );
     SendClientMessage(playerid, COLOR_LIGHTRED, string);
 }
 forward MSG_TryToRobSameLastNpcBizz(playerid);
@@ -1696,6 +1697,7 @@ public MSG_TryToRobSameLastNpcBizz(playerid) {
     if(idiom[playerid] == 1) { SendClientMessage(playerid, -1, "Você não pode roubar a mesma loja!"); }
     else if(idiom[playerid] == 2) { SendClientMessage(playerid, -1, "You can't rob the SAME store!"); }
     else if(idiom[playerid] == 3) { SendClientMessage(playerid, -1, "¡No puedes robar en la misma tienda!"); }
+    else if(idiom[playerid] == 4) { SendClientMessage(playerid, -1, "Hindi mo pwedeng nakawan ang PAREHONG tindahan na iyong pinagnakawan!"); }
 }
 forward MSG_NeedCopsAroundToDoOperation(playerid, num);
 public MSG_NeedCopsAroundToDoOperation(playerid, num) {
@@ -1710,6 +1712,10 @@ public MSG_NeedCopsAroundToDoOperation(playerid, num) {
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "Necesitas %i policï¿½as para iniciar este tipo de Operaciï¿½n Policial", num+1 );
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Kinakailangan mo ng %i pulisya upang simulan ang Police Operation", num+1 );
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1728,6 +1734,10 @@ public MSG_NeedCriminalsAroundToCmd(playerid, num) {
       format(str, sizeof(str), "¡Se necesitan %i delincuentes para usar este comando!", num+1 );
       SendClientMessage(playerid, COLOR_GREY, str);
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Ito ay kailangan ng %i criminals upang magamit ang command na ito!", num+1 );
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
 }
 forward MSG_VeteranJob(playerid);
 public MSG_VeteranJob(playerid) {
@@ -1740,6 +1750,9 @@ public MSG_VeteranJob(playerid) {
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "¡Los jugadores novatos no pueden ingresar a este trabajo!");
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Ang baguhang players ay hindi makakapasok sa trabahong ito!");
   }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
@@ -1755,6 +1768,9 @@ public MSG_VeteranCommand(playerid) {
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "¡Los jugadores novatos no pueden usar este comando!");
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Ang baguhang players ay hindi pwedeng gamitin ang command na ito!");
+  }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_InfoBonusMoneyBusDriver(playerid);
@@ -1763,6 +1779,7 @@ public MSG_InfoBonusMoneyBusDriver(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Tire a Licença C (Onibus) para receber mais dinheiro com esse emprego, vá até o Centro de Licenças tira-la (/gps)!");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Get License C (Onibus) to receive more money with this job, go to the License Center to get it (/gps)!");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"¡Obtén la Licencia C (Onibus) para recibir más dinero con este trabajo, ve al Centro de Licencias para obtenerla (/gps)!");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Kumuha ng License C (Onibus) upang makatangap ng mas-malaking pera sa trabahong ito, pumunta lamang sa License Center upang makakuha nito (/gps)!");
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Need Ground License C",str,"Ok","");
   SendClientMessage(playerid, -1, str);
 }
@@ -1772,6 +1789,7 @@ public MSG_InfoBonusMoneyMotoboy(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Tire a Licença A (Moto) para receber mais dinheiro com esse emprego, vá até o Centro de Licenças tira-la (/gps)!");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Get License A (Motorcycle) to receive more money with this job, go to the License Center to get it (/gps)!");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"Obtenga la Licencia A (Motocicleta) para recibir más dinero con este trabajo, vaya al Centro de Licencias para obtenerla (/gps)!");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Kumuha ng License A (Motorcycle) upang makatangap ng mas-malaking pera sa trabahong ito, pumunta lamang sa License Center upang makakuha nito (/gps)!");
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Need Ground License A",str,"Ok","");
   SendClientMessage(playerid, -1, str);
 }
@@ -1781,6 +1799,7 @@ public MSG_InfoHowToWork_Pirate(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Alugue um barco e fique no mar para Caça Tesouros e Rouba Materiais de Navios Militares!");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Rent a boat and stay at sea to Hunt Treasure and Steal Materials from Military Ships!");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"¡Alquile un barco y quédese en el mar para cazar tesoros y robar materiales de barcos militares!");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Mag renta ng bangka at manatili sa dagat upang mag Hunt Treasure at kunin ang materyales sa Military Ships!");
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"HowToWork Pirate",str,"Ok","");
   SendClientMessage(playerid, -1, str);
 }
@@ -1790,6 +1809,7 @@ public MSG_NeedLicenseDorEtoWork(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Você não tem Licença D/E para dirigir um caminhão, vá até o Centro de Licenças tira-la (/gps)!");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"You don't have a D/E License to drive a truck, go to the License Center to get it (/gps)!");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"¡No tienes Licencia D/E para conducir un camión, ve al Centro de Licencias para obtenerla (/gps)!");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Ikaw ay wala pang D/E License upang magmaniho ng truck, pumunta lamang sa License Center at kumuha nito (/gps)!");
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Need Ground License D or E",str,"Ok","");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
