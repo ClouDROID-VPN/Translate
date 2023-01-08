@@ -1343,88 +1343,106 @@ public MSG_TaskInfoModal(playerid) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar Casas] Faça assaltos a Casas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Robbing Houses] Raid Houses (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robar casas] Asaltar casas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Robbing Houses] Pagnanakaw sa Bahay (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_roubar_partners) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar em Dupla] Faça assaltos em Dupla (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Double Steal] Perform Duo Steals (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robo doble] Realiza robos a dúo (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Double Steal] Magsagawa ng Dobleng Pagnanakaw (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_roubar_groups) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar em Grupo] Faça assaltos em Grupo (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Group Steal] Make Group Heists (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robo de grupo] Realizar atracos en grupo (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Group Steal] Magsagawa ng Grupong Pagnanakaw (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_roubar_warehouse) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Roubar em Armazem] Faça assaltos em Armazem (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Storage Steal] Make Warehouse Heists (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Robo de almacenamiento] Realizar atracos al almacén (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Storage Steal] Magnakaw sa Warehouse (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       // cop
       else if(inTask[playerid] == t_entregar_transport_bags) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Entregar Bolsas de Dinheiro de Caixa Eletronico] Faça entregas de Bolsas de Dinheiro de Caixas Eletronico (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Deliver ATM Money Bags] Deliver ATM Money Bags (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Entregar bolsas de dinero en cajero automático] Entregar bolsas de dinero en cajero automático (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Deliver ATM Money Bags] Mag Deliver ng ATM Money Bags (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_prender_jogadores_procurados) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Prender Procurados] Prenda jogadores procurados (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Arrest Wanted] Arrest wanted players (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Arresto Buscado] Arresto de jugadores buscados (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Arrest Wanted] Arrestohin ang mga wanted (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_fazer_abordagens) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Abordagem] Faça abordagens policiais (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Approach] Make police approaches (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Aproximación] Hacer aproximaciones policiales (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Approach] Make police approaches (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_retornar_moveis_roubados) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Devolver Mobilia] Devolva moveis roubados para suas respectivas casas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Return Furniture] Return stolen furniture to their respective homes (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Devolver Muebles] Devolver los muebles robados a sus respectivos hogares (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Ibalik ang Gamit] Ibalik ang Gamit sa kanilang respetadong Bahay (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        
       }
       else if(inTask[playerid] == t_encontrar_culpados_de_assassinatos) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Investigar Assassinatos] Encontre os assassinos de cadaveres (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Investigate Murders] Find the corpse killers (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Investigar asesinatos] Encuentra a los asesinos de cadáveres (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Imbestigahan ang Pagpatay] Hanapin Ang Pumatay (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_closeoperation) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Close Bizz] Feche as portas de empresas ilegais/gangzones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Close Bizz] Close the doors of illegal companies/gangzones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Close Bizz] Cierra las puertas de empresas ilegales/gangzones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Close Bizz] Isarado ang pinto ng mga illegal companies/gangzones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_seizureoperation) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Operações Policial] Faça operações policiais em Casas/Factions HQ (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Police Operations] Perform police operations in Houses/Factions HQ (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Operaciones policiales] Realiza operaciones policiales en el cuartel general de casas/facciones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Police Operations] Magsagawa ng operasyon sa mga Bahay /Factions HQ (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       // civilian
       else if(inTask[playerid] == t_voltas_de_busao) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Etinerario - Motorista de Onibus] Complete as voltas do etinerario do emprego Motorista de Onibus (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Itinerary - Bus Driver] Complete the routes for the Bus Driver (%i/%i) job", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Itinerario - Conductor de autobús] Complete las rutas para el trabajo de Conductor de autobús (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Itinerary - Bus Driver] Kompletuhin ang ruta para sa Driver ng Bus (%i/%i) job", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_entregar_pizzas) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Entregas - Motoboy] Complete as voltas entregas do emprego Motoboy (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Deliveries - Motoboy] Complete the delivery laps of the Motoboy job (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Entregas - Motoboy] Completa las vueltas de entrega del trabajo Motoboy (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Deliveries - Motoboy] Kumpletuhin ang delivery laps sa Motoboy job (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_pescar_peixes) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Pescaria - Pescador] Faça pescas no mar (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Fishing - Fisherman] Go fishing in the sea (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Pesca - Pescador] Ve a pescar al mar (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Fishing - Fisherman] Pumunta at Mangisda sa Dagat (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_consertar_carros) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Consertar - Mecanico] Conserte veiculos danificados (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Repair - Mechanic] Repair damaged vehicles (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Reparación - Mecánico] Reparación de vehículos dañados (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Repair - Mechanic] Ayusin ang sira na kotse (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_soltar_presos) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Libertar Presos - Advogado] Solte presos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Release Prisoners - Lawyer] Release prisoners (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Liberar presos - Abogado] Liberar presos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Release Prisoners - Lawyer] Palayain ang mga Preso (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_fazer_viagens_aereas) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Viagens Aereas - Piloto] Complete viagens aereas entre aeroportos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Air Travel - Pilot] Complete air travel between airports (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Viaje aéreo - Piloto] Viaje aéreo completo entre aeropuertos (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Air Travel - Pilot] Kumpletuhin ang air travel sa pagitan ng mga paliparan (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
     //   else if(inTask[playerid] == t_fazer_uma_viagem_de_trem) {
     //       format(str, sizeof(str), "[Viagens Ferrovia - Maquinista] Complete as voltas do etinerario do emprego Maquinista (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
@@ -1433,21 +1451,25 @@ public MSG_TaskInfoModal(playerid) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Entrega de Produtos - Caminhoneiro] Faça entrega de produtos nas empresas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Product Delivery - Truck Driver] Deliver products to companies (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Entrega de productos - Camionero] Entregar productos a empresas (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Product Delivery - Truck Driver] Mag deliver ng mga produkto sa mga companya(%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_vender_pedras_mineradas) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Vender Pedras Mineradas - Minerador] Minere pedras na mina e venda as pedras (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Sell Mined Stones - Miner] Mine stones in the mine and sell the stones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Vender piedras extraídas - Minero] Extraer piedras en la mina y vender las piedras (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Sell Mined Stones - Miner] Magmina ng mga Bato at Ibenta (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       else if(inTask[playerid] == t_desmanchar_veiculos) {
         if(idiom[playerid] == 1) format(str, sizeof(str), "[Desmanchar Veiculos - Ladrão de Veiculos] Minere pedras na mina e venda as pedras (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 2) format(str, sizeof(str), "[Dismantle Vehicles - Vehicle Thief] Mine stones in the mine and sell the stones (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
         else if(idiom[playerid] == 3) format(str, sizeof(str), "[Desmontar vehículos - Ladrón de vehículos] Extraer piedras en la mina y vender las piedras (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
+        else if(idiom[playerid] == 4) format(str, sizeof(str), "[Dismantle Vehicles - Vehicle Thief] Chopchopin ang kotse (%i/%i)", inTaskProgress[playerid], inTaskTotal[playerid]);
       }
       strcat(final, str);
       if(idiom[playerid] == 1) format(str, sizeof(str), "\n\n/canceltask para cancelar esta tarefa.");
       else if(idiom[playerid] == 2) format(str, sizeof(str), "\n\n/canceltask to cancel this task.");
       else if(idiom[playerid] == 3) format(str, sizeof(str), "\n\n/canceltask para cancelar esta tarea.");
+      else if(idiom[playerid] == 4) format(str, sizeof(str), "\n\n/canceltask para ma kansela ang gawain.");
       strcat(final, str);
   }
   // finish
@@ -1455,6 +1477,7 @@ public MSG_TaskInfoModal(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Parabens\nvocê finalizou sua Task, vá até a prefeitura para pegar sua recompensa.");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "Congratulations\nyou finished your Task, go to the town hall to get your reward.");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Felicitaciones\nterminaste tu tarea, ve al ayuntamiento para obtener tu recompensa.");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Binabati kita\nnatapos mo ang iyong gawain, pumunta sa town hall para makuha ang reward.");
     strcat(final, str);
   }
   // starting
@@ -1462,6 +1485,7 @@ public MSG_TaskInfoModal(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você não está fazendo nenhuma Task, vá até a prefeitura para pegar uma Task.");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You are not doing any Tasks, go to the Town Hall to get a Task.");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No estás haciendo ninguna Tarea, ve al Ayuntamiento para obtener una Tarea.");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Wala kang ginagawa, pumunta sa Town Hall at kumuha ng gawain.");
     strcat(final, str);
   }
   // EXAUSTED:
@@ -1486,6 +1510,9 @@ public MSG_AntiDmQuestionsDialog(playerid) {
       else if(idiom[playerid] == 3) {
           format(str, sizeof(str), "¡Cuï¿½ndo puedo atacar a otro jugador?\n- Cuando el jugador objetivo está en modo FIGHT etiqueta gris [FIGHT] en la parte superior de la cabeza\n- Cuando el jugador objetivo está en modo SAFE con la etiqueta verde [SAFE] en la parte superior de la cabeza -a\n - Cuando el jugador objetivo está en modo PAUSA con la etiqueta [PAUSA] en la parte superior de la cabeza");
       }
+      else if(idiom[playerid] == 4) {
+          format(str, sizeof(str), "Kailan ako pwedeng umatake?\n- Kapag ang player ay naka FIGHT mode, kulay gray [FIGHT] na tag sa taas ng ulo\n- Kapag ang player ay naka SAFE mode kulay berde na [SAFE] na tag sa taas ng ulo\n- Kapag ang player ay naka PAUSE mode [PAUSE] na tag sa taas ng ulo ");
+      }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 1", str, "Select", "");
   }
   else if(antidmQuestions[playerid] == 2) {
@@ -1497,6 +1524,9 @@ public MSG_AntiDmQuestionsDialog(playerid) {
       }
       else if(idiom[playerid] == 3) {
           format(str, sizeof(str), "Si quiero un lugar seguro (sin PVP) para hablar e intercambiar, ï¿½dï¿½nde debo ir?\n- Cuadrados rojos en el mapa, usando Y - GPS - GangZones\n- Cuadrados verdes en el mapa, usando Y - GPS - SafeZones\n- Granjas, usando Y - GPS - Granja");
+      }
+      else if(idiom[playerid] == 4) {
+          format(str, sizeof(str), "Kapag gusto ko sa safe na lugar (walang PVP) para kumausap at makipag negosasyon saan ako pupunta??\n- Red squares of the map, using Y - GPS - GangZones\n- Green squares of the map, using Y - GPS - SafeZones\n- Farms, using Y - GPS - Farm");
       }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 2", str, "Select", "");
   }
@@ -1510,6 +1540,9 @@ public MSG_AntiDmQuestionsDialog(playerid) {
       else if(idiom[playerid] == 3) {
           format(str, sizeof(str), "¡Cuï¿½ndo pueden matarme los policï¿½as?\n- Si solo soy buscado\n- Si solo soy buscado y LUCHAR\n- Si solo estoy armado.");
       }
+      else if(idiom[playerid] == 4) {
+          format(str, sizeof(str), "Kailan ako pwedeng patayin ng pulis?\n- Kapag ako ay wanted lamang\n- kapag ako ay may wanted level at naka FIGHT\n- Kapag ako ay armado lamang");
+      }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 3", str, "Select", "");
   }
   else if(antidmQuestions[playerid] == 4) {
@@ -1521,6 +1554,9 @@ public MSG_AntiDmQuestionsDialog(playerid) {
       }
       else if(idiom[playerid] == 3) {
           format(str, sizeof(str), "Marque las opciones incorrectas:\n- Los policï¿½as pueden disparar ruedas de vehículos en persecuciï¿½n incluso sin PELEAR\n- Los delincuentes pueden destruir los vehículos de otros jugadores para robar incluso sin PELEAR\n- Puedo matar a un jugador solo por ofenderme");
+      }
+      else if(idiom[playerid] == 4) {
+          format(str, sizeof(str), "Piliin ang maling sagot:\n- Police officers can shoot vehicle wheels in pursuits even without FIGHT\n- Criminals can destroy other players' vehicles to make an assault even without FIGHT\n- I can kill a player just for offending me ");
       }
       ShowPlayerDialog(playerid, 436, DIALOG_STYLE_LIST, "ANTI DM QUESTION 4", str, "Select", "");
   }
@@ -1535,6 +1571,7 @@ public MSG_BuyLotteryTicketDialog(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Coloque aqui o nï¿½mero do ticket que você quer comprar:");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Enter the ticket number you want to buy here:");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"Introduce el nï¿½mero de billete que quieres comprar aquï¿½:");
+   else if(idiom[playerid] == 4) format(str,sizeof(str),"Ilagay ang ticket number na gusto mong bilhin:");
   ShowPlayerDialog(playerid, 363, DIALOG_STYLE_INPUT, "Loterry Menu", str, "Buy", "Cancel");
 }
 forward MSG_DeliveringWinningTicket(playerid, value);
@@ -1543,6 +1580,7 @@ public MSG_DeliveringWinningTicket(playerid, value) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Parabeńs!!! você entregou o bilhete premiado e recebeu %i$", value);
   else if(idiom[playerid] == 2) format(str,sizeof(str),"Congratulations!!! You delivered the winning ticket and received %i$", value);
   else if(idiom[playerid] == 3) format(str,sizeof(str),"¡¡¡Feliz cumpleaños!!! entregaste el boleto ganador y recibiste %i$", value);
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Congratulations!!! You delivered the winning ticket and received %i$", value);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_BizzCloseExausted(playerid, etime);
@@ -1558,6 +1596,10 @@ public MSG_BizzCloseExausted(playerid, etime) {
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "Solo puede realizar una OPERACIï¿½N DE CIERRE DE BIZZ de %i en %i minutos, ï¿½espere!", etime, etime);
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Pwede ka lamang mag BIZZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1576,6 +1618,10 @@ public MSG_GzCloseExausted(playerid, etime) {
       format(str, sizeof(str), "Solo puede hacer una OPERACIï¿½N DE CIERRE GZ de %i en %i minutos, ï¿½espere!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
 }
 forward MSG_HouseSeizureExausted(playerid, etime);
 public MSG_HouseSeizureExausted(playerid, etime) {
@@ -1590,6 +1636,10 @@ public MSG_HouseSeizureExausted(playerid, etime) {
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "Solo puede hacer una OPERACIï¿½N DE CIERRE GZ de %i en %i minutos, ï¿½espere!", etime, etime);
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
 }
@@ -1608,6 +1658,10 @@ public MSG_HqSeizureExausted(playerid, etime) {
       format(str, sizeof(str), "Solo puede hacer una OPERACIï¿½N DE CIERRE GZ de %i en %i minutos, ï¿½espere!", etime, etime);
       SendClientMessage(playerid, COLOR_GREY, str);
   }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Pwede ka lamang mag GZ CLOSE OPERATION %i in %i minutes, please wait!", etime, etime);
+      SendClientMessage(playerid, COLOR_GREY, str);
+  }
 }
 forward MSG_PlayerExaustedNpcBizzRob(playerid, etime);
 public MSG_PlayerExaustedNpcBizzRob(playerid, etime) {
@@ -1622,6 +1676,10 @@ public MSG_PlayerExaustedNpcBizzRob(playerid, etime) {
     }
     else if(idiom[playerid] == 3) {
         format(string, sizeof(string), "Solo puedes robar un NPC de %i en %i minutos, ï¿½espera!", etime, etime);
+        SendClientMessage(playerid, COLOR_GREY, string);
+    }
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Pwede mong nakawan ang %i sa loob ng %i minuto NPC, Maghintay ka!", etime, etime);
         SendClientMessage(playerid, COLOR_GREY, string);
     }
 }
