@@ -1939,13 +1939,14 @@ public MSG_CantBeInVehicle(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você não pode usar esse comando em um Veiculo.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You cannot use this command on a Vehicle.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "No puede usar este comando en un vehículo.");
-  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "You cannot use this command on a Vehicle.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "Hindi mo maaaring gamitin ang command na ito sa isang Sasakyan.");
 }
 forward MSG_YouAlreadyFishing(playerid);
 public MSG_YouAlreadyFishing(playerid) {
   if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_GREY, "Você já está pescando aguarde terminar.");
   else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_GREY, "You are already fishing wait to finish.");
   else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_GREY, "Ya estás pescando espera a terminar.");
+  else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_GREY, "Ikaw ay nanghuhuli na ng isda maghintay upang matapos.");
 }
 forward MSG_OnFishTrash(playerid, tipopesca);
 public MSG_OnFishTrash(playerid, tipopesca) {
@@ -1955,30 +1956,36 @@ public MSG_OnFishTrash(playerid, tipopesca) {
     if(idiom[playerid] == 1) trashText = "Casaco";
     else if(idiom[playerid] == 2) trashText = "Coat";
     else if(idiom[playerid] == 3) trashText = "Saco";
+    else if(idiom[playerid] == 4) trashText = "Coat";
   }
   else if(tipopesca == 2) {
     if(idiom[playerid] == 1) trashText = "Calcinha";
     else if(idiom[playerid] == 2) trashText = "Panty";
     else if(idiom[playerid] == 3) trashText = "Bragas";
+    else if(idiom[playerid] == 4) trashText = "Panty";
   }
   else if(tipopesca == 3) {
     if(idiom[playerid] == 1) trashText = "Calcinha";
     else if(idiom[playerid] == 2) trashText = "Panty";
     else if(idiom[playerid] == 3) trashText = "Bragas";
+    else if(idiom[playerid] == 4) trashText = "Panty";
   }
   else if(tipopesca == 4) {
     if(idiom[playerid] == 1) trashText = "Sunga";
     else if(idiom[playerid] == 2) trashText = "Trunks";
     else if(idiom[playerid] == 3) trashText = "Bañador";
+    else if(idiom[playerid] == 4) trashText = "Trunks";
   }
   else if(tipopesca == 5) {
     if(idiom[playerid] == 1) trashText = "Bota";
     else if(idiom[playerid] == 2) trashText = "Boot";
     else if(idiom[playerid] == 3) trashText = "Bota";
+    else if(idiom[playerid] == 4) trashText = "Boot";
   }
   if(idiom[playerid] == 1) format(str, sizeof str, "Você pegou 1 %s e o jogou fora!", trashText);
   else if(idiom[playerid] == 2) format(str, sizeof str, "You took 1 %s and threw it away!", trashText);
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡Tomaste 1 %s y lo tiraste!", trashText);
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Kinuha mo ay 1 %s at itapon ito!", trashText);
   SendClientMessage(playerid, COLOR_GREY, str);
 }
 forward MSG_OnFishMoney(playerid, value);
@@ -1987,6 +1994,7 @@ public MSG_OnFishMoney(playerid, value) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "* você pegou uma carteira,contendo %d$", value);
   else if(idiom[playerid] == 2) format(str, sizeof(str), "* you took a wallet, containing %d$", value);
   else if(idiom[playerid] == 3) format(str, sizeof(str), "* tomaste una billetera que contenía %d$", value);
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "* kinuha mo ang isang wallet, na naglalaman ng %d$", value);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_OnFishFISH(playerid, peixe_pescado, Caught);
@@ -1995,6 +2003,7 @@ public MSG_OnFishFISH(playerid, peixe_pescado, Caught) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "* Voce pescou [%s], pesando: [%d] Lbs.", GetItemName(peixe_pescado, Caught, idiom[playerid]), Caught);
   else if(idiom[playerid] == 2) format(str, sizeof(str), "* You caught [%s], weighing: [%d] Lbs.", GetItemName(peixe_pescado, Caught, idiom[playerid]), Caught);
   else if(idiom[playerid] == 3) format(str, sizeof(str), "* Capturaste [%s], pesando: [%d] Lbs.", GetItemName(peixe_pescado, Caught, idiom[playerid]), Caught);
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "* Nahuli mo na ang [%s], na tumitimbang ng: [%d] Lbs.", GetItemName(peixe_pescado, Caught, idiom[playerid]), Caught);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_PernaQuebradaMessage(playerid);
@@ -2002,6 +2011,7 @@ public MSG_PernaQuebradaMessage(playerid) {
     if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_LIGHTRED, "Suas pernas estáo quebradas! Compre uma Morphine no hospital (/gps) ou procure um Medico!" ); }
     else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_LIGHTRED, "Your legs are broken! Buy a Morphine at the hospital (/gps) or look for a Doctor!" ); }
     else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_LIGHTRED, "¡Tus piernas están rotas! ï¿½Compra una Morfina en el hospital (/gps) o busca un Doctor!" ); }
+    else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_LIGHTRED, "Ang iyong mga binti ay nasira! Bumili ng isang Morphine sa ospital (/gps) o maghanap ng Doktor!" ); }
     return 1;
 }
 forward MSG_InputMinMaxCharacters(playerid, min, max);
@@ -2010,18 +2020,21 @@ public MSG_InputMinMaxCharacters(playerid, min, max) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "O input deve ter no minimo %i caracteres e no máximo %i caracteres", min, max);
   else if(idiom[playerid] == 2) format(str, sizeof(str), "The input must have a minimum of %i characters and a maximum of %i characters", min, max);
   else if(idiom[playerid] == 3) format(str, sizeof(str), "La entrada debe tener un mínimo de %i caracteres y un máximo de %i caracteres", min, max);
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Ang input ay dapat magkaroon ng minimum na %i characters at maximum na %i characters", min, max);
   SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_usoucmdRECAviso(playerid); public MSG_usoucmdRECAviso(playerid) {
     if(idiom[playerid] == 1) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Aguarde para usar esse comando novamente!");
     else if(idiom[playerid] == 2) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Wait to use this command again!");
     else if(idiom[playerid] == 3) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Esperar para usar este comando de nuevo!");
+    else if(idiom[playerid] == 4) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Maghintay upang gamitin muli ang command na ito!");
     return 1;
 }
 forward MSG_usoubuttonRECAviso(playerid); public MSG_usoubuttonRECAviso(playerid) {
     if(idiom[playerid] == 1) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Aguarde para usar esse botão novamente!");
     else if(idiom[playerid] == 2) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Wait to use this button again!");
     else if(idiom[playerid] == 3) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] ¡Espere para usar este botón nuevamente!");
+    else if(idiom[playerid] == 4) return SendClientMessage(playerid, -1, "[ANTI-FLOOD-CMD] Maghintay upang gamitin muli ang pindutan na ito!");
     return 1;
 }
 forward MSG_InFightAviso(playerid); public MSG_InFightAviso(playerid) {
@@ -2030,10 +2043,13 @@ forward MSG_InFightAviso(playerid); public MSG_InFightAviso(playerid) {
         format(str,sizeof(str),"Você está em MODO DE COMBATE (F) e por isso não pode realizar essa ação agora.\nTire as armas da mãos, não ataque ninguï¿½m e aguarde até que a Textdraw preta com o F do lado do seu dinheiro suma\npara poder realizar essa ação.\n\ntempo restante: %i segundos", FightTime[playerid]);
     }
     else if(idiom[playerid] == 2) {
-        format(str,sizeof(str),"You are in COMBAT MODE (F) and therefore cannot perform this action now.\nTake your weapons out of your hands, do not attack anyone and wait until the black Textdraw with the F next to your money disappears\nto be able to perform this action.\n\ntime remaining: %i seconds", FightTime[playerid]);
+        format(str,sizeof(str),"You are in COMBAT MODE (F) and therefore cannot perform this action.\nTake your weapons out of your hands, do not attack anyone and wait until the black Textdraw with the F next to your money disappears\nto be able to perform this action.\n\ntime remaining: %i seconds", FightTime[playerid]);
     }
     else if(idiom[playerid] == 3) {
         format(str,sizeof(str),"Estás en MODO DE COMBATE (F) y por lo tanto no puedes realizar esta acción ahora.\nQuítate las armas de las manos, no ataques a nadie y espera a que desaparezca el Textdraw negro con la F junto a tu dinero\npara poder realizar esta acción.\n\nTiempo restante: %i segundos", FightTime[playerid]);
+    }
+    else if(idiom[playerid] == 4) {
+        format(str,sizeof(str),"Ikaw ay nasa COMBAT MODE (F) at samakatuwid ay hindi maaaring isagawa ang pagkilos na ito.\nAlisin mo ang iyong mga armas sa iyong mga kamay, wag kang aatake ng kahit sino at hintayin mo na lang mawala ang black Textdraw na may F sa tabi ng pera mo\nupang magawa ang aksyong ito.\n\ntime remaining: %i seconds", FightTime[playerid]);
     }
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Fight Mode:",str,"Ok","");
     return 1;
@@ -2086,6 +2102,7 @@ public MSG_MissionPopUp(playerid) {
   if(idiom[playerid] == 1)      { desc = "/mission para abrir o passo a passo"; }
   else if(idiom[playerid] == 2) { desc = "/mission to open step by step"; }
   else if(idiom[playerid] == 3) { desc = "/mission para abrir el paso a paso"; }
+  else if(idiom[playerid] == 4) { desc = "/mission upang buksan ang bawat hakbang"; }
   new str[128];
   new mtsid = mission[playerid];
   StringInsertNewLine(GetMissionTitle(playerid, mtsid), 30, "~n~"); // quebrar linhas com ~n~ e - apartir de X caracters
@@ -2099,6 +2116,7 @@ public MSG_MissionPopUp(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof(str), "Faça todas as missões do servidor para entender como tudo funciona e receba diversos bonus! (/mission)");
   else if(idiom[playerid] == 2) format(str, sizeof(str), "Do all the server missions to understand how everything works and receive several bonuses! (/mission)");
   else if(idiom[playerid] == 3) format(str, sizeof(str), "¡Haz todas las misiones del servidor para comprender cómo funciona todo y recibe varias bonificaciones! (/mision)");
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Gawin ang lahat ng mga misyon ng server upang maunawaan kung paano gumagana ang lahat at makatanggap ng ilang mga bonus! (/mission)");
   SendClientMessage(playerid, COLOR_BLUEVIOLET, str);
 }
 forward MSG_NoobAntiDmMessageEquipGun(playerid); public MSG_NoobAntiDmMessageEquipGun(playerid) {
@@ -2113,6 +2131,9 @@ forward MSG_NoobAntiDmMessageEquipGun(playerid); public MSG_NoobAntiDmMessageEqu
         else if(idiom[playerid] == 3) {
             format(str,sizeof(str),"[FIGHT-ON] Mientras tengas las armas en la mano, estarás en MODO LUCHA y desprotegido de ANTI-DM: /antidm");
         }
+        else if(idiom[playerid] == 4) {
+            format(str,sizeof(str),"[FIGHT-ON] Habang may mga armas sa kamay, ikaw ay nasa FIGHT-MODE at hindi protektado sa ANTI DM: /antidm");
+        }
         SendClientMessage(playerid, COLOR_LIGHTRED, str);
     }
 }
@@ -2123,10 +2144,13 @@ forward MSG_NoobAntiDmModeON(playerid); public MSG_NoobAntiDmModeON(playerid) {
             format(str,sizeof(str),"[FIGHT-ON] Você ativou o Modo de Combate (F), e agora pode ser atacado e sofrer DM, mais informações /antidm");
         }
         else if(idiom[playerid] == 2) {
-            format(str,sizeof(str),"[FIGHT-ON] You activated Combat Mode (F), and can now be attacked and DMed, more info /antidm");
+            format(str,sizeof(str),"[FIGHT-ON] You activated Combat Mode (F), and you can now be attacked and DMed, more info /antidm");
         }
         else if(idiom[playerid] == 3) {
             format(str,sizeof(str),"[FIGHT-ON] Activaste el modo de combate (F), y ahora puedes ser atacado y enviado por DM, más información /antidm");
+        }
+        else if(idiom[playerid] == 4) {
+            format(str,sizeof(str),"[FIGHT-ON] Pinagana mo ang Combat Mode (F), at pwede ka na ngayong atakehin at DMed, more info /antidm");
         }
         SendClientMessage(playerid, COLOR_LIGHTRED, str);
     }
@@ -2138,10 +2162,13 @@ public MSG_ExaustedArmourMEDIC(playerid) {
       format(str, sizeof(str), "Você já curou colete com medico recentemente, aguarde 15 minutos.");
   }
   else if(idiom[playerid] == 2) {
-      format(str, sizeof(str), "You've healed vest with a doctor recently, wait 15 minutes.");
+      format(str, sizeof(str), "You've healed with a doctor recently, wait 15 minutes.");
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "Has curado el chaleco con un médico recientemente, espera 15 minutos.");
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Nagpagaling ka sa isang doktor kamakailan, maghintay ng 15 minuto.");
   }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
@@ -2152,10 +2179,13 @@ public MSG_ArmourAddLimit(playerid, value) {
       format(str, sizeof(str), "Essa ação só consegue adicionar no máximo até %i de colete, você já tem %i", value, GetPlayerArmourEx(playerid) );
   }
   else if(idiom[playerid] == 2) {
-      format(str, sizeof(str), "This action can only add up to a maximum of %i of vest, you already have %i", value, GetPlayerArmourEx(playerid) );
+      format(str, sizeof(str), "This action can only add up to maximum of %i of vest, you already have %i", value, GetPlayerArmourEx(playerid) );
   }
   else if(idiom[playerid] == 3) {
       format(str, sizeof(str), "Esta acción solo puede sumar un máximo de %i de vest, ya tienes %i", value, GetPlayerArmourEx(playerid) );
+  }
+  else if(idiom[playerid] == 4) {
+      format(str, sizeof(str), "Ang pagkilos na ito ay maaari lamang magdagdag ng hanggang sa maximum ng %i of vest, meron ka nang %i", value, GetPlayerArmourEx(playerid) );
   }
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
@@ -2163,12 +2193,14 @@ forward MSG_NotFSafeFight(playerid);
 public MSG_NotFSafeFight(playerid) {
   new str[128];
   if(idiom[playerid] == 1) format(str, sizeof(str), "Você não entrou no modo PROTEGIDO porque já entrou na SafeZone em combate!");
-  else if(idiom[playerid] == 2) format(str, sizeof(str), "You have not entered PROTECTED mode because you have already entered the SafeZone in combat!");
+  else if(idiom[playerid] == 2) format(str, sizeof(str), "You have not entered PROTECTED mode because you've entered SafeZone in combat mode!");
   else if(idiom[playerid] == 3) format(str, sizeof(str), "¡No ha ingresado al modo PROTEGIDO porque ya ingresó a SafeZone en combate!");
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Hindi ka pa pumasok sa PROTECTED mode dahil nakapasok ka sa SafeZone na combat mode!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   if(idiom[playerid] == 1) format(str, sizeof(str), "Sem o modo protegido outros jogadores podem te atacar e você não pode acessar o Presente e o Deposito.");
-  else if(idiom[playerid] == 2) format(str, sizeof(str), "Without protected mode other players can attack you and you cannot access Gift and Deposit.");
+  else if(idiom[playerid] == 2) format(str, sizeof(str), "Without protected mode You can be attacked by other players and you cannot access Gift and Deposit.");
   else if(idiom[playerid] == 3) format(str, sizeof(str), "Sin el modo protegido, otros jugadores pueden atacarte y no puedes acceder a Gift and Deposit.");
+  else if(idiom[playerid] == 4) format(str, sizeof(str), "Kung walang protected mode maari kang atakihin ng ibang players at hindi mo ma access ang Gift at Deposit.");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_AdmHelpReturnMessage(playerid);
