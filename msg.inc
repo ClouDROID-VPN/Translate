@@ -4760,7 +4760,7 @@ public MSG_NoOneClooserToYouBloodbag(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Não tem ninguém morrendo perto de você para você levantar com a sua Bolsa de Sangue!");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "There's no one dying near you for you to pick up with your Blood Bag!");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "¡No hay nadie muriendo cerca de ti para que lo recojas con tu bolsa de sangre!");
-    else if(idiom[playerid] == 4) format(str, sizeof(str), "Walang malapit na Mamatay na Tao para pag-gamitan ng Blood Bag!");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Walang malapit na Mamamatay ng Tao para pag-gamitan ng Blood Bag!");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_PickCocainePaste(playerid);
