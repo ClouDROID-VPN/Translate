@@ -4307,16 +4307,22 @@ public MSG_VoiceLoginInfo(playerid, adminLvl, hasVoiceOnClient, bool:mobile) {
             SendClientMessage(playerid, COLOR_LIGHTRED, "- activarlo en el menú de voz (F11)");
             SendClientMessage(playerid, COLOR_LIGHTRED, "- conecte un micrófono a su dispositivo");
         }
+        else if(idiom[playerid] == 4) {
+            SendClientMessage(playerid, COLOR_LIGHTRED, "Hinde na identify ang mikropono sa iyong devive para sa VOICE!");
+            SendClientMessage(playerid, COLOR_LIGHTRED, "- i activate sa voice menu (F11)");
+            SendClientMessage(playerid, COLOR_LIGHTRED, "- mag saksak ng mikropono sa iyong device");
     }
     else if(hasVoiceOnClient == 1) {
         if(adminLvl >= 6) {
             if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Aperte 'Z' para falar no chat global");
             else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Press 'Z' to speak in global chat");
             else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Presione 'Z' para hablar en el chat global");
+            else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Pindutin ang 'Z' para makapagsalita sa global chat");
         }
         if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Aperte 'B' para falar no chat local/radio");
         else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Press 'B' to speak in local/radio chat");
         else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Presiona 'B' para hablar en el chat local/radio");
+        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Pindutin ang 'B' para makapagsalita sa local/radio chat");
     }
 }
 forward MSG_CantAutoAimDisarmed(playerid, targetplayer);
@@ -4328,6 +4334,8 @@ public MSG_CantAutoAimDisarmed(playerid, targetplayer) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "<ANTI-DM> Players WITHOUT A WEAPON IN THE INVENTORY cannot be surrendered!");
     else if(idiom[playerid] == 3) 
         SendClientMessage(playerid, COLOR_LIGHTRED, "<ANTI-DM> !Los jugadores SIN UN ARMA EN EL INVENTARIO no pueden ser entregados!");
+    else if(idiom[playerid] == 4) 
+        SendClientMessage(playerid, COLOR_LIGHTRED, "<ANTI-DM> Players na WALANG ARMAS SA KANYANG INVENTORY ay hinde maaaring isuko!");    
     // targetplayer
     if(idiom[targetplayer] == 1) 
         SendClientMessage(targetplayer, COLOR_LIGHTRED, "<ANTI-DM> Jogadores SEM ARMA NO INVENTARIO nao podem ser rendidos!");
@@ -4335,6 +4343,8 @@ public MSG_CantAutoAimDisarmed(playerid, targetplayer) {
         SendClientMessage(targetplayer, COLOR_LIGHTRED, "<ANTI-DM> Players WITHOUT A WEAPON IN THE INVENTORY cannot be surrendered!");
     else if(idiom[targetplayer] == 3) 
         SendClientMessage(targetplayer, COLOR_LIGHTRED, "<ANTI-DM> !Los jugadores SIN UN ARMA EN EL INVENTARIO no pueden ser entregados!");
+    else if(idiom[targetplayer] == 4) 
+        SendClientMessage(targetplayer, COLOR_LIGHTRED, "<ANTI-DM> Players na WALANG ARMAS SA KANYANG INVENTORY ay hinde maaring isuko!");    
     // 
     if(IsACop(playerid)) {
         // aviso cop para taze
@@ -4344,6 +4354,8 @@ public MSG_CantAutoAimDisarmed(playerid, targetplayer) {
             SendClientMessage(playerid, COLOR_LIGHTRED, "<TAZE> To immobilize an unarmed player, use Punch Taze or Pistol Taze!");
         else if(idiom[playerid] == 3) 
             SendClientMessage(playerid, COLOR_LIGHTRED, "<TAZE> !Para inmovilizar a un jugador desarmado, usa Punch Taze o Pistol Taze!");
+        else if(idiom[playerid] == 4) 
+            SendClientMessage(playerid, COLOR_LIGHTRED, "<TAZE> Para i-immobilize ang player, gamitin ang Punch Taze o ang Pistol Taze!");    
     }
 }
 forward MSG_CantAutoAimNoWanted(playerid, targetid);
@@ -4353,10 +4365,12 @@ public MSG_CantAutoAimNoWanted(playerid, targetid) {
         if(idiom[playerid] == 1) format(string, sizeof(string), "Civis sem nível de procurado (nome cor BRANCO) não podem ser rendidos no sistema de rendição.");
         else if(idiom[playerid] == 2) format(string, sizeof(string), "Civilians with no wanted level (WHITE color name) cannot be surrendered in the surrender system.");
         else if(idiom[playerid] == 3) format(string, sizeof(string), "Los civiles sin nivel de búsqueda (nombre de color blanco) no pueden entregarse en el sistema de entrega.");
+        else if(idiom[playerid] == 4) format(string, sizeof(string), "Civilians na walang wanted level (WHITE color name) cannot be surrendered in the surrender system.");
         SendClientMessage(playerid, COLOR_LIGHTRED, string);
         if(idiom[targetid] == 1) format(string, sizeof(string), "Civis sem nível de procurado (nome cor BRANCO) não podem ser rendidos no sistema de rendição.");
         else if(idiom[targetid] == 2) format(string, sizeof(string), "Civilians with no wanted level (WHITE color name) cannot be surrendered in the surrender system.");
         else if(idiom[targetid] == 3) format(string, sizeof(string), "Los civiles sin nivel de búsqueda (nombre de color blanco) no pueden entregarse en el sistema de entrega.");
+        else if(idiom[targetid] == 4) format(string, sizeof(string), "Civilians na walang wanted level (WHITE color name) cannot be surrendered in the surrender system.");
         SendClientMessage(targetid, COLOR_LIGHTRED, string);
     }
     if(IsACop(playerid)) {
@@ -4364,16 +4378,19 @@ public MSG_CantAutoAimNoWanted(playerid, targetid) {
         if(idiom[playerid] == 1) format(string, sizeof(string), "Civis sem nível de procurado (nome cor BRANCO) só podem ser rendidos em uma perseguição policial.");
         else if(idiom[playerid] == 2) format(string, sizeof(string), "Civilians with no wanted level (white color name) can only be surrendered in a police chase.");
         else if(idiom[playerid] == 3) format(string, sizeof(string), "Los civiles sin nivel de búsqueda (nombre de color blanco) solo pueden ser entregados en una persecución policial.");
+        else if(idiom[playerid] == 4) format(string, sizeof(string), "Civilians na walang wanted level (white color name) maaari lamang sumuko sa police chase.");
         SendClientMessage(playerid, COLOR_LIGHTRED, string);
         // 
         if(idiom[targetid] == 1) format(string, sizeof(string), "Civis sem nível de procurado (nome cor BRANCO) só podem ser rendidos em uma perseguição policial.");
         else if(idiom[targetid] == 2) format(string, sizeof(string), "Civilians with no wanted level (white color name) can only be surrendered in a police chase.");
         else if(idiom[targetid] == 3) format(string, sizeof(string), "Los civiles sin nivel de búsqueda (nombre de color blanco) solo pueden ser entregados en una persecución policial.");
+        else if(idiom[targetid] == 4) format(string, sizeof(string), "Civilians na walang wanted level (white color name) maaari lamang sumuko sa police chase.");
         SendClientMessage(targetid, COLOR_LIGHTRED, string);
         // start abordagem
         if(idiom[playerid] == 1) format(string, sizeof(string), "- inicie uma abordagem apertando H com uma viatura ou com um cacetete para poder render/revistar esse jogador!");
         else if(idiom[playerid] == 2) format(string, sizeof(string), "- start an approach by pressing H with a car or a club to be able to surrender/search that player!");
         else if(idiom[playerid] == 3) format(string, sizeof(string), "- ¡comienza un acercamiento presionando H con un auto o un palo para poder entregar/buscar a ese jugador!");
+        else if(idiom[playerid] == 4) format(string, sizeof(string), "- Gumawa ng approach sa pamamagitan ng pag pindut ng H habang nasa Kotse o kaya hawak ang batuta para mapasuko/makapkapan ang player!");
         SendClientMessage(playerid, COLOR_LIGHTRED, string);
     }
 }
@@ -4383,6 +4400,7 @@ public MSG_YouDidntHandcuffThisPlayer(playerid, targetid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Não foi você quem algemou o jogador %s", PlayerName(targetid));
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You weren't the one who handcuffed player %s", PlayerName(targetid));
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No fuiste tú quien esposó al jugador %s", PlayerName(targetid));
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Hinde ikaw ang nagposas sa player na ito %s", PlayerName(targetid));
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_YouDidntTieThisPlayer(playerid, targetid);
@@ -4391,6 +4409,7 @@ public MSG_YouDidntTieThisPlayer(playerid, targetid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Não foi você quem amarrou o jogador %s", PlayerName(targetid));
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You weren't the one who tied up player %s", PlayerName(targetid));
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No fuiste tú quien ató al jugador %s", PlayerName(targetid));
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Hinde ikaw ang nagtali sa player na ito %s", PlayerName(targetid));
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_DmOffProtectHouseAttack(targetplayer, playerid);
@@ -4399,6 +4418,7 @@ public MSG_DmOffProtectHouseAttack(targetplayer, playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "<ANTI-DM> OFF! %s atacando a casa do jogador %s", PlayerName(targetplayer), PlayerName(playerid));
     else if(idiom[playerid] == 2) format(str, sizeof(str), "<ANTI-DM> OFF! %s attacking the player's house %s", PlayerName(targetplayer), PlayerName(playerid));
     else if(idiom[playerid] == 3) format(str, sizeof(str), "<ANTI-DM> OFF! %s atacando la casa del jugador %s", PlayerName(targetplayer), PlayerName(playerid));
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "<ANTI-DM> OFF! %s umaatake sa bahay ng player %s", PlayerName(targetplayer), PlayerName(playerid));
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_InvalidNickname(playerid);
@@ -4407,6 +4427,7 @@ public MSG_InvalidNickname(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você escolheu um nome inválido, são aceitos apenas letras numeros (espaços também não são permitidos ' ', use underline: '_'");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You have chosen an invalid name, only letters and numbers are accepted (spaces are also not allowed ' ', use underscore: '_'");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Ha elegido un nombre no válido, solo se aceptan letras y números (los espacios tampoco están permitidos ' ', use guión bajo: '_'");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "You have chosen an invalid name, only letters and numbers are accepted (spaces are also not allowed ' ', use underscore: '_'");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_ChangeHouseNoMoneyChangeHQ(playerid);
@@ -4415,6 +4436,7 @@ public MSG_ChangeHouseNoMoneyChangeHQ(playerid) {
   if(idiom[playerid] == 1) format(str,sizeof(str),"Você trocou a HQ da sua facção, a casa antiga vai ficar sem dinheiro, coloque dinheiro no armario da casa ou poderá perde-la em alguns PayDays");
   else if(idiom[playerid] == 2) format(str,sizeof(str),"You changed your faction's HQ, the old house will run out of money, put money in the house closet or you may lose it in some PayDays");
   else if(idiom[playerid] == 3) format(str,sizeof(str),"Cambiaste el cuartel general de tu facción, la antigua casa se quedará sin dinero, pon dinero en el armario de la casa o puedes perderlo en algunos PayDays");
+  else if(idiom[playerid] == 4) format(str,sizeof(str),"Nagpalit ka ng  faction's HQ, ang lumang bahay ay mawawalan ng pera, maglagay ng pera sa closet dahil mawawala ito sa ilang PayDay");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
   ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"ChangeHouseNoMoneyChangeHQ",str,"Ok","");
 }
@@ -4429,6 +4451,9 @@ forward MSG_NoobCantEquipThisWeapon(playerid); public MSG_NoobCantEquipThisWeapo
     else if(idiom[playerid] == 3) {
         format(str,sizeof(str),"Los jugadores novatos solo pueden equipar armas legales compradas en Ammu Nation, ¡juega hasta llegar al nivel 5 para equipar esta arma!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str,sizeof(str),"Ang mga baguhang players ay maaari lamang gumamit ng legal na armas, maglaro hanggang makamit mo ang level 5 para magamit ang baril na ito!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_VehUnraveled(playerid); public MSG_VehUnraveled(playerid) {
@@ -4441,6 +4466,9 @@ forward MSG_VehUnraveled(playerid); public MSG_VehUnraveled(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(str,sizeof(str),"¡Este auto se deshizo! Necesitas esperar unas horas o reconstruirlo usando: /rebuildcar");
+    }
+    else if(idiom[playerid] == 4) {
+        format(str,sizeof(str),"Ang kotse na ito ay nakalas! Mag hintay ng ilang oras i-rebuild gamit ang: /rebuildcar");
     }
     SendClientMessage(playerid, COLOR_WHITE, str);
 }
@@ -4460,6 +4488,10 @@ forward MSG_DontHaveVehicleKeys(playerid); public MSG_DontHaveVehicleKeys(player
     {
         SendClientMessage(playerid, COLOR_LIGHTRED, "[LLAVE]: ¡No tienes la llave para arrancar este vehículo!");
     }
+    else if(idiom[playerid] == 4)
+    {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "[KEY]: Wala sayo ang Susi ng sasakyan para ma i-start ito!");
+    }
     // msg ligacao direta
     if(CRIMINALskills[playerid] < 100) {
         MSG_DontHaveSkillLevelToCMD(playerid, "criminal", 100);
@@ -4474,6 +4506,9 @@ forward MSG_DontHaveVehicleKeys(playerid); public MSG_DontHaveVehicleKeys(player
     else if(idiom[playerid] == 3) { 
         ShowPlayerDialog(playerid, 56, DIALOG_STYLE_MSGBOX, "Vehicle Direct Connection Start", "!Quiere intentar hacer una MarcaciÃƒÂ¯Ã‚Â¿Ã‚Â½n Directa en este Vehiculo?", "Si", "No");
     }
+    else if(idiom[playerid] == 4) { 
+        ShowPlayerDialog(playerid, 56, DIALOG_STYLE_MSGBOX, "Vehicle Direct Connection Start", "Gusto mo ba subukan ang Vehicle Direct Connection?", "Yes", "No");
+    }
     return 1;
 }
 forward MSG_CopAbordagemRec(playerid);
@@ -4482,10 +4517,12 @@ public MSG_CopAbordagemRec(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você já realizou uma abordagem recentemente, aguarde alguns minutos para realizar outra");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You have already performed an approach recently, wait a few minutes to perform another");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Ya has realizado un abordaje recientemente, espera unos minutos para realizar otro");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Nakapag perform kana ng approach kanina, maghintay ng ilang minuro para makapag perform ulit");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
     if(idiom[playerid] == 1) format(str, sizeof(str), "Evite abordar jogadores sem motivo para não ter esse problema, aborde apenas jogadores suspeitos ou proximo de ocorrências");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "Avoid approaching players without reason to not have this problem, only approach suspicious players or close to occurrences");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Evita acercarte a jugadores sin motivo para no tener este problema, solo acércate a jugadores sospechosos o cercanos a ocurrencias");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Iwasan ang pag approach sa players ng walang rason para hinde mag ka problema, lapitan lamang ang mga kahina-hinalang players o malapit ng gumawa ng krimen");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 stock GetCrimeName(crimeid, auxIdiom) {
@@ -4494,41 +4531,49 @@ stock GetCrimeName(crimeid, auxIdiom) {
         if(auxIdiom == 1) wantedname = "Sequestro";
         else if(auxIdiom == 2) wantedname = "Kidnapping";
         else if(auxIdiom == 3) wantedname = "Secuestro";
+        else if(auxIdiom == 4) wantedname = "Kidnapping";
     }
     else if(crimeid == 2) {
         if(auxIdiom == 1) wantedname = "Assassinato";
         else if(auxIdiom == 2) wantedname = "Murder";
         else if(auxIdiom == 3) wantedname = "Asesinato";
+        else if(auxIdiom == 4) wantedname = "Pagpatay";
     }
     else if(crimeid == 3) {
         if(auxIdiom == 1) wantedname = "Tentativa de Homicidio";
         else if(auxIdiom == 2) wantedname = "Homicide Attempted";
         else if(auxIdiom == 3) wantedname = "Intento de Homicidio";
+        else if(auxIdiom == 4) wantedname = "Nagtangkang pagpatay";
     }
     else if(crimeid == 4) {
         if(auxIdiom == 1) wantedname = "Roubo";
         else if(auxIdiom == 2) wantedname = "Theft";
         else if(auxIdiom == 3) wantedname = "Robo";
+        else if(auxIdiom == 4) wantedname = "Pagnanakaw";
     }
     else if(crimeid == 5) {
         if(auxIdiom == 1) wantedname = "Direcao Perigosa";
         else if(auxIdiom == 2) wantedname = "Dangerous Driving";
         else if(auxIdiom == 3) wantedname = "Conduccion Peligrosa";
+        else if(auxIdiom == 4) wantedname = "mapanganib na pagmamaneho";
     }
     else if(crimeid == 6) {
         if(auxIdiom == 1) wantedname = "Trafico";
         else if(auxIdiom == 2) wantedname = "Trafficking";
         else if(auxIdiom == 3) wantedname = "Trafico";
+        else if(auxIdiom == 4) wantedname = "Trafficking";
     }
     else if(crimeid == 7) {
         if(auxIdiom == 1) wantedname = "Porte Ilegal de Armas";
         else if(auxIdiom == 2) wantedname = "Illegal Porting of Weapons";
         else if(auxIdiom == 3) wantedname = "Portacion Ilegal de Armas";
+        else if(auxIdiom == 4) wantedname = "Illegal na Pagdadala ng Armas";
     }
     else if(crimeid == 8) {
         if(auxIdiom == 1) wantedname = "Porte Ilegal de Drogas";
         else if(auxIdiom == 2) wantedname = "Illegal Porting of Drugs";
         else if(auxIdiom == 3) wantedname = "Portacion Ilegal de Drogas";
+        else if(auxIdiom == 2) wantedname = "Illegal na Pagdadala ng Droga";
     }
     else if(crimeid == 9) {
         if(auxIdiom == 1) wantedname = "Fuga";
@@ -4539,71 +4584,85 @@ stock GetCrimeName(crimeid, auxIdiom) {
         if(auxIdiom == 1) wantedname = "Agressao";
         else if(auxIdiom == 2) wantedname = "Aggression";
         else if(auxIdiom == 3) wantedname = "Agresion";
+        else if(auxIdiom == 4) wantedname = "Aggression";   
     }
     else if(crimeid == 11) {
         if(auxIdiom == 1) wantedname = "Cumplice";
         else if(auxIdiom == 2) wantedname = "Accomplice";
         else if(auxIdiom == 3) wantedname = "Complice";
+        else if(auxIdiom == 4) wantedname = "Kasabwat";
     }
     else if(crimeid == 12) {
         if(auxIdiom == 1) wantedname = "Sem Carteira de Motorista";
         else if(auxIdiom == 2) wantedname = "No Driver's License";
         else if(auxIdiom == 3) wantedname = "Sin licencia de Conducir";
+        else if(auxIdiom == 4) wantedname = "Walang Driver's License";
     }
     else if(crimeid == 13) {
         if(auxIdiom == 1) wantedname = "Invasao de Domicilio";
         else if(auxIdiom == 2) wantedname = "Home Invasion";
         else if(auxIdiom == 3) wantedname = "Invasion de Casa";
+        else if(auxIdiom == 4) wantedname = "Pagsalakay sa Bahay";
     }
     else if(crimeid == 14) {
         if(auxIdiom == 1) wantedname = "Guerra Territorial";
         else if(auxIdiom == 2) wantedname = "Territory War";
         else if(auxIdiom == 3) wantedname = "Territorio de Guerra";
+        else if(auxIdiom == 4) wantedname = "Territory War";
     }
     else if(crimeid == 15) {
         if(auxIdiom == 1) wantedname = "Estupro";
         else if(auxIdiom == 2) wantedname = "Rape";
         else if(auxIdiom == 3) wantedname = "Violacion";
+        else if(auxIdiom == 4) wantedname = "Panggagahasa";
     }
     else if(crimeid == 16) {
         if(auxIdiom == 1) wantedname = "Roubando Pacote do Exercito";
         else if(auxIdiom == 2) wantedname = "Stealing Army Package";
         else if(auxIdiom == 3) wantedname = "Robo del paquete del Ejercito";
+        else if(auxIdiom == 4) wantedname = "Pagnanakaw ng Army Package";
     }
     else if(crimeid == 17) {
         if(auxIdiom == 1) wantedname = "Terrorismo";
         else if(auxIdiom == 2) wantedname = "Terrorism";
         else if(auxIdiom == 3) wantedname = "Terrorismo";
+        else if(auxIdiom == 4) wantedname = "Terorismo";
     }
     else if(crimeid == 18) {
         if(auxIdiom == 1) wantedname = "Atirando em Publico";
         else if(auxIdiom == 2) wantedname = "Shotting in Public";
         else if(auxIdiom == 3) wantedname = "Disparando en Publica";
+        else if(auxIdiom == 4) wantedname = "Pagbaril sa Publiko";
     }
     else if(crimeid == 19) {
         if(auxIdiom == 1) wantedname = "Corrupcao";
         else if(auxIdiom == 2) wantedname = "Corruption";
         else if(auxIdiom == 3) wantedname = "Corrupcion";
+        else if(auxIdiom == 4) wantedname = "Korapsyon";
     }
     else if(crimeid == 20) {
         if(auxIdiom == 1) wantedname = "Falsidade Ideologica";
         else if(auxIdiom == 2) wantedname = "Ideological Falsehood";
         else if(auxIdiom == 3) wantedname = "Falsedad Ideologica";
+        else if(auxIdiom == 4) wantedname = "kasinungalingan sa ideolohiya";
     }
     else if(crimeid == 21) {
         if(auxIdiom == 1) wantedname = "Desrespeito a Ordem Policial";
         else if(auxIdiom == 2) wantedname = "Disrespect the Police Order";
         else if(auxIdiom == 3) wantedname = "Desrespeto a Orden Policial";
+        else if(auxIdiom == 4) wantedname = "Hinde Pag-galang sa utos ng Pulisya";
     }
     else if(crimeid == 22) {
         if(auxIdiom == 1) wantedname = "Roubo de Veiculo";
         else if(auxIdiom == 2) wantedname = "Vehicle Theft";
         else if(auxIdiom == 3) wantedname = "Robo de Vehiculos";
+        else if(auxIdiom == 4) wantedname = "Pagnanakaw ng Sasakyan";
     }
     else if(crimeid == 23) {
         if(auxIdiom == 1) wantedname = "Assassinato com Brutalidade excessiva";
         else if(auxIdiom == 2) wantedname = "Murder with excessive Brutality";
         else if(auxIdiom == 3) wantedname = "Asesinato con brutalidad excesiva";
+        else if(auxIdiom == 4) wantedname = "Pagpatay na may labis na kalupitan";
     }
     return wantedname;
 }
@@ -4613,10 +4672,12 @@ public MSG_AutoSuNovatoEntender(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Não foi o policial que te colocou como procurado, é o proprio servidor de forma automatica que coloca quando você comete um crime perto de um policial");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "It wasn't the police that put you as wanted, it's the server itself that automatically puts you when you commit a crime near a police");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No fue la policia la que te puso como buscado, es el propio servidor el que te pone automaticamente cuando cometes un delito cerca de un policia");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Kapag hinde pulis ang naglagay ng wanted sayo, Iyon ay ang server mismo dahil automatic na ito kapag gumawa ka ng krimen malapit sa pulis");
     SendClientMessage(playerid, -1, str);
     if(idiom[playerid] == 1) format(str, sizeof(str), "É impossível ter abusos, alguma ação no jogo te gerou esse nível de procurado, tente entender a dinamica do jogo para entender o porque você ficou procurado");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "It is impossible to have abuses, some action in the game generated this wanted level, try to understand the dynamics of the game to understand why you were wanted");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Es imposible tener abusos, alguna acción en el juego generó este nivel buscado, trata de entender la dinámica del juego para entender porque te buscaban");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "imposibleng magkaroon ng pang-aabuso, ilang aksyon sa laro ay nabuo ang wanted level, Subukan mong intindihin ang laro para maintindihan mo kung bakit ka wanted");
     SendClientMessage(playerid, -1, str);
 }
 forward CacaTesouroInfo(playerid); public CacaTesouroInfo(playerid) {
@@ -4632,6 +4693,9 @@ forward CacaTesouroInfo(playerid); public CacaTesouroInfo(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "Manténgase en el agua y cerca de los barcos para participar en el tesoro de Cacoesas en los horarios de Cacoesas.");
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "Horas del servidor Treasure Hunt: [10:00], [20:00]");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "Manatili sa Tubig at malapit sa mga bangka para makasali sa treasure hunts kapag hunting times.");
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "Treasure Hunting Server Times: [10:00], [20:00]");
 }
 forward MSG_PickUpMarijuana(playerid, ammount);
 public MSG_PickUpMarijuana(playerid, ammount) {
@@ -4639,6 +4703,7 @@ public MSG_PickUpMarijuana(playerid, ammount) {
     if(idiom[playerid] == 1) format(string, sizeof(string), "Voce pegou [%i] Maconha", ammount);
     else if(idiom[playerid] == 2) format(string, sizeof(string), "You got [%i] Marijuana", ammount);
     else if(idiom[playerid] == 3) format(string, sizeof(string), "Usted ha tomado [%i] Marihuana", ammount);
+    else if(idiom[playerid] == 4) format(string, sizeof(string), "Nakakuha ka ng [%i] Marijuana", ammount);
 }
 forward MSG_ManufacturedDrugs(playerid, itemid, ammount);
 public MSG_ManufacturedDrugs(playerid, itemid, ammount) {
@@ -4646,6 +4711,7 @@ public MSG_ManufacturedDrugs(playerid, itemid, ammount) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você fabricou: %s", GetItemName(itemid, ammount, idiom[playerid]) );
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You crafted: %s", GetItemName(itemid, ammount, idiom[playerid]) );
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Creaste: %s", GetItemName(itemid, ammount, idiom[playerid]) );
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Gumawa ka ng: %s", GetItemName(itemid, ammount, idiom[playerid]) );
     SendClientMessage(playerid, COLOR_GREEN, str);
 }
 forward MSG_NewbieCantAccomplice(playerid, novatoLvl);
@@ -4654,6 +4720,7 @@ public MSG_NewbieCantAccomplice(playerid, novatoLvl) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Você não recebeu dinheiro de Cumplice do roubo, jogadores novatos (nível %i pra baixo) não podem participar de um roubo como Cumplice.", novatoLvl);
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You have not received any money from the Heist's Accomplice, novice players (level %i and below) cannot participate in a heist as an Accomplice.", novatoLvl);
     else if(idiom[playerid] == 3) format(str, sizeof(str), "No has recibido dinero del cómplice del atraco, los jugadores novatos (nivel %i e inferior) no pueden participar en un atraco como cómplice.", novatoLvl);
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Hinde ka nakakuha ng pera sa pagsama sa pagnanakaw, Baguhang players (level %i at pababa) hinde pwede sumama sa pagnanakaw.", novatoLvl);
     SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_GzDrugsProfit(playerid, gzid, facid, gzSalaryBonus);
@@ -4664,6 +4731,7 @@ public MSG_GzDrugsProfit(playerid, gzid, facid, gzSalaryBonus) {
             if(idiom[playerid] == 1) format(drugsText, sizeof(drugsText), "lucro reduzido, zona sem drogas");
             else if(idiom[playerid] == 2) format(drugsText, sizeof(drugsText), "reduced profit, drug free zone");
             else if(idiom[playerid] == 3) format(drugsText, sizeof(drugsText), "beneficio reducido, zona libre de drogas");
+            else if(idiom[playerid] == 4) format(drugsText, sizeof(drugsText), "nabawasan ang kita, drug free zone");
         }
         else if(GangZoneInfo[gzid][gzMaconha] > 0 && GangZoneInfo[gzid][gzCocaina] == 0 && GangZoneInfo[gzid][gzCrack] == 0) {
             format(drugsText, sizeof(drugsText), "%i maconha", GangZoneInfo[gzid][gzMaconha]);
@@ -4692,6 +4760,7 @@ public MSG_NoOneClooserToYouBloodbag(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Não tem ninguém morrendo perto de você para você levantar com a sua Bolsa de Sangue!");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "There's no one dying near you for you to pick up with your Blood Bag!");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "¡No hay nadie muriendo cerca de ti para que lo recojas con tu bolsa de sangre!");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Walang malapit na Mamatay na Tao para pag-gamitan ng Blood Bag!");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_PickCocainePaste(playerid);
@@ -4700,5 +4769,6 @@ public MSG_PickCocainePaste(playerid) {
     if(idiom[playerid] == 1) format(str, sizeof(str), "Voce pegou uma Pasta de Cocacoesna");
     else if(idiom[playerid] == 2) format(str, sizeof(str), "You got a Paste of Cocaine");
     else if(idiom[playerid] == 3) format(str, sizeof(str), "Usted ha tomado una Pasta de Cocacoesna");
+    else if(idiom[playerid] == 4) format(str, sizeof(str), "Nakakuha ka ng Paste ng Cocaine");
     SendClientMessage(playerid, COLOR_GREEN, str);
 }
