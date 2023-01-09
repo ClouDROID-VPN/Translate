@@ -2208,14 +2208,17 @@ public MSG_AdmHelpReturnMessage(playerid) {
   if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_YELLOW, "Relatorio enviado com sucesso aguarde um administrador responder! (/admins)"); }
   else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_YELLOW, "Report sent successfully wait for an administrator to answer! (/admins)"); }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_YELLOW, "¡Informe enviado con éxito espere a que un administrador responda! (/admins)"); }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_YELLOW, "Matagumpay na naipadala ang ulat hintayin mo na lang ang sagot ng administrator! (/admins)"); }
 
   if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_GREY, "Se você estiver bugado (preso) e não tiver nenhum online respondendo, você pode usar /kill para morrer e ir para o hospital!"); }
   else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_GREY, "If you're bugged (stuck) and don't have any online responding, you can use /kill to die and go to the hospital!"); }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_GREY, "Si tienes un micrófono oculto (atascado) y no tienes ninguna respuesta en línea, ¡puedes usar /matar para morir e ir al hospital!"); }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_GREY, "Kung ikaw ay bugged (stuck) at wala pang online na sumasagot, pwede mo gamitin ang /kill para mamatay at mapunta sa ospital!"); }
 
   if(idiom[playerid] == 1) { SendClientMessage(playerid, COLOR_GREY, "Se ainda assim você precisar de suporte logue no site com a sua conta do jogo e poste no fórum (/forum)"); }
-  else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_GREY, "If you still need support, log into the site with your game account and post on the forum (/forum)"); }
+  else if(idiom[playerid] == 2) { SendClientMessage(playerid, COLOR_GREY, "If you still need support, log into the site with your account and post on forum (/forum)"); }
   else if(idiom[playerid] == 3) { SendClientMessage(playerid, COLOR_GREY, "Si aún necesita soporte, inicie sesión en el sitio con su cuenta de juego y publique en el foro (/foro)"); }
+  else if(idiom[playerid] == 4) { SendClientMessage(playerid, COLOR_GREY, "Kung kailangan mo pa rin ng suporta, Mag log in sa site gamit ang iyong account at mag-post sa forum (/forum)"); }
 }
 forward MSG_NpcReactingToAssault(playerid, dmgValue);
 public MSG_NpcReactingToAssault(playerid, dmgValue) {
@@ -2227,11 +2230,15 @@ public MSG_NpcReactingToAssault(playerid, dmgValue) {
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
   }
   else if(idiom[playerid] == 2) {
-    format(str, sizeof(str), "The shop NPC reacted to the robbery and is shooting you!");
+    format(str, sizeof(str), "The shop NPC reacted to the robbery and it will shoot you!");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
   }
   else if(idiom[playerid] == 3) {
     format(str, sizeof(str), "¡El NPC de la tienda reaccionó al robo y te está disparando!");
+    SendClientMessage(playerid, COLOR_LIGHTRED, str);
+  }
+  else if(idiom[playerid] == 4) {
+    format(str, sizeof(str), "Ang NPC sa tindahan ay nag react sa nakawan at babarilin ka nito!");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
   }
 }
@@ -2250,6 +2257,10 @@ public MSG_ValueRobbed(playerid, valuerob, valuepercent, lFacTax) {
     format(str, sizeof(str), "Monto robado: %i$ (Bonificación de nivel criminal adicional: +%i$) [-%i$ Tarifa de facción]");
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
   }
+  else if(idiom[playerid] == 4) {
+    format(str, sizeof(str), "Halaga ng Ninakaw: %i$ (Extra Criminal Level Bonus: +%i$) [-%i$ Faction Fee]", valuerob, valuepercent, lFacTax );
+    SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
+  }
 }
 forward MSG_ValueRobbedHouse(playerid, valuerob);
 public MSG_ValueRobbedHouse(playerid, valuerob) {
@@ -2266,6 +2277,10 @@ public MSG_ValueRobbedHouse(playerid, valuerob) {
     format(str, sizeof(str), "Monto Robado: %i$ (Consigue más dinero con más nivel Criminal)", valuerob );
     SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
   }
+  else if(idiom[playerid] == 4) {
+    format(str, sizeof(str), "Halaga ng Ninakaw: %i$ (Kumuha ng mas maraming pera na may higit pang antas ng Kriminal)", valuerob );
+    SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
+  }
 }
 forward MSG_NoobHelper_RobHouse(playerid);
 public MSG_NoobHelper_RobHouse(playerid) {
@@ -2280,12 +2295,12 @@ public MSG_NoobHelper_RobHouse(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "================================================================");
     }
     else if(idiom[playerid] == 2) {
-        format(stringajuda,sizeof(stringajuda),"==================== Important notice READ! ====================\nPut the mobile in a trunk of a car! Press ALT or use /alt.\nPut it in a empty space(Empty)!\nThen sells it in a mouth of smoke! A checkpoint on your map with a mouth of smoke was marked!\n================================================================");
+        format(stringajuda,sizeof(stringajuda),"==================== Read the important notice! ====================\nPut the mobile in a trunk of a car! Press ALT or use /alt.\nPut it in a empty space(Empty)!\nThen sells it in a mouth of smoke! A checkpoint on your map with a mouth of smoke was marked!\n================================================================");
         ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Mobile Sell:",stringajuda,"Ok","");
-        SendClientMessage(playerid, COLOR_LIGHTRED, "==================== Important notice READ! ====================");
-        SendClientMessage(playerid, COLOR_LIGHTRED, "Put the mobile in a trunk of a car! Press ALT or use /alt.");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "==================== Read the important notice! ====================");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Put the item in a trunk of car! Press ALT or use /alt.");
         SendClientMessage(playerid, COLOR_LIGHTRED, "Put it in a empty space(Empty)!");
-        SendClientMessage(playerid, COLOR_LIGHTRED, "Then sells it in a GangZone! (/gps)");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Then sells it in GangZone! (/gps)");
         SendClientMessage(playerid, COLOR_LIGHTRED, "================================================================");
     }
     else if(idiom[playerid] == 3) {
@@ -2295,6 +2310,15 @@ public MSG_NoobHelper_RobHouse(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Pon los muebles en el maletero de un coche! Presionando ALT o usando /alt.");
         SendClientMessage(playerid, COLOR_LIGHTRED, "Coloque em um espaço vazio(Empty)!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Luego lo vende en una GangZone! (/GPS)");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "================================================================");
+    }
+    else if(idiom[playerid] == 4) {
+        format(stringajuda,sizeof(stringajuda),"==================== Basahin ang mahalagang ABISO! ====================\nPut the mobile in a trunk of a car! Press ALT or use /alt.\nPut it in a empty space(Empty)!\nThen sells it in a mouth of smoke! A checkpoint on your map with a mouth of smoke was marked!\n================================================================");
+        ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Mobile Sell:",stringajuda,"Ok","");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "==================== Basahin ang mahalagang ABISO! ====================");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Ilagay ang item sa isang trunk ng kotse! Pindutin ang ALT o gamitin ang /alt.");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Ilagay ito sa isang bakanteng espasyo(Empty)!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Tapos ibebenta ito sa GangZone! (/gps)");
         SendClientMessage(playerid, COLOR_LIGHTRED, "================================================================");
     }
 }
@@ -2400,6 +2424,41 @@ public MSG_CommandsHelp(playerid) {
         format(str, sizeof(str), "\n[ESP] /language - cambia tu idioma");
         strcat(final, str); 
     }
+    else if(idiom[playerid] == 4)
+    {
+        format(str, sizeof (str), "{FFFFFF}Upang magkaroon ng isang mas mahusay na karanasan sa paglalaro, hangga't maaari iniiwasan ng IL ang paggamit ng mga command .");
+        strcat(final, str);
+        format(str, sizeof (str), "\nKaramihan sa mga command ay ginamitan lang ng button keys, ang mga ito ay:");
+        strcat(final, str);
+        format(str, sizeof (str), "\n'H' | 'Y' | 'N' | 'ALT' | 'AIM' in: players, npcs, objects | '2'");
+        strcat(final, str);
+
+        format(str, sizeof (str), "\n\n{FF0000}/mission{FFFFFF} - Gawin ang lahat ng mga misyon ng server upang maunawaan kung paano ito gumagana at makatanggap ng ilang mga bonus!");
+        strcat(final, str);
+
+        if (IsAndroidPlayer(playerid) == true) {
+            format(str, sizeof (str), "\n--- SAMP ANDROID WITHOUT BUTTONS USE THE COMMANDS ---");
+            strcat(final, str);
+            format(str, sizeof (str), "\nON FOOT:/h,/f,/y,/n,/alt (/a)");
+            strcat(final, str);
+            format(str, sizeof (str), "\nEM VEHICLES:/n,/ctrl (/c),/y,/h,/alt (/a)");
+            strcat(final, str);
+            format(str, sizeof (str), "\nmga commands na katumbas ng mga button keys upang maaari mong laruin ang anumang bersyon ng SAMP mobile, kahit yung mga walang buttons");
+            strcat(final, str);
+        }
+        if (admin[playerid] > 0) {
+            format(str, sizeof (str), "\n\n* admins commands * \n/aa\n");
+            strcat(final, str);
+        }
+        format(str, sizeof (str), "\n\n[EN]/language - baguhin ang iyong wika");
+        strcat(final, str);
+        format(str, sizeof (str), "\n[ENG]/idiom - baguhin ang iyong wika");
+        strcat(final, str);
+        format(str, sizeof (str), "\n[ESP]/language - baguhin ang iyong wika");
+        strcat(final, str);
+        format(str, sizeof (str), "\n[PH]/wika - baguhin ang iyong wika");
+        strcat(final, str);
+    }
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Commands Help:",final,"Ok","");
 }
 forward MSG_AntiCheatAdmAviso(playerhackid, reason[]);
@@ -2421,6 +2480,7 @@ public MSG_TryPickItemWithItemOnHands(playerid) {
     if(idiom[playerid] == 1) SendClientMessage (playerid, -1 , "Você já está segurando um item! Tente um SLOT vazio! (Empty)" );
     else if(idiom[playerid] == 2) SendClientMessage (playerid, -1 , "You're already holding a item! Try an empty SLOT!" );
     else if(idiom[playerid] == 3) SendClientMessage (playerid, -1 , "¡Ya tienes un artículo! ¡Prueba con una SLOT vacía! (Vacío)" );
+    else if(idiom[playerid] == 4) SendClientMessage (playerid, -1 , "May hawak ka pang item! Subukan ang isang walang laman na SLOT!" );
     return true;
 }
 forward MSG_CopsCantUseThisCommand(playerid);
@@ -2429,6 +2489,7 @@ public MSG_CopsCantUseThisCommand(playerid) {
   if(idiom[playerid] == 1) format(str, sizeof str, "COPs não podem usar este comando!");
   else if(idiom[playerid] == 2) format(str, sizeof str, "COPs can not use this command!");
   else if(idiom[playerid] == 3) format(str, sizeof str, "¡COP no pueden usar este comando!");
+  else if(idiom[playerid] == 4) format(str, sizeof str, "Hindi magagamit ng mga COP ang command na ito!");
   SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_RobDisarmedOrWeaponOnHands(playerid); public MSG_RobDisarmedOrWeaponOnHands(playerid) {
@@ -2448,6 +2509,11 @@ forward MSG_RobDisarmedOrWeaponOnHands(playerid); public MSG_RobDisarmedOrWeapon
         ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Rob With No Weapon:",string,"Ok","");
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Para llevar a cabo este robo necesitas tener armas en tu inventario y necesitas estar sin un arma en tus manos!");
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Upang maisagawa ang nakawan na ito kailangan may armas ka sa inventory mo at dapat ay walang armas sa iyong mga kamay!\n- bumili ng armas, itago mo sa backpack mo\n- at walang armas sa kamay, simulan ang nakawan na ito");
+        ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Rob With No Weapon:",string,"Ok","");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Upang maisagawa ang nakawan na ito kailangan may armas ka sa inventory mo at dapat ay walang armas sa iyong mga kamay!");
+    }
     return 1;
 }
 forward MSG_TryBeCOPwanted(playerid); public MSG_TryBeCOPwanted(playerid) {
@@ -2462,6 +2528,10 @@ forward MSG_TryBeCOPwanted(playerid); public MSG_TryBeCOPwanted(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Eres buscado por la policía! ¡No puedes convertirte en policía! ¡Entrégate a un oficial de policía para que te arreste O usa las tiendas: Barber Shop y Tatto Studio para eliminar tu nivel de búsqueda!");
+        ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Wanted Try To Be COP:",string,"Ok","");
+    }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Ikaw ay pinaghahanap ng pulisya! Hindi ka maaaring maging isang pulis! Sumuko sa isang pulis upang ikaw ay arestuhin o gamitin ang mga tindahan: Barber Shop at Tatto Studio upang alisin ang iyong level!");
         ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Wanted Try To Be COP:",string,"Ok","");
     }
     return 1;
@@ -2480,6 +2550,10 @@ forward MSG_JobBlockedForNewbies(playerid); public MSG_JobBlockedForNewbies(play
         format(string,sizeof(string),"Este trabajo está bloqueado para jugadores principiantes (menos de nivel 3)...\nElige uno liberado para novatos como:\n- Conductor de autobï¿½s\n- Repartidor de pizza\n- Pescador\n- Piloto de aviï¿½n");
         ShowPlayerDialog(playerid,59,DIALOG_STYLE_MSGBOX,"Newbie Job:",string,"Ok","");
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Ang trabahong ito ay naka block para sa mga manlalaro ng nagsisimula pa lamang (mas mababa sa level 3)...\nPumili ng isa na inilabas para sa mga newbies tulad ng:\n- Bus driver\n- Pizza delivery boy\n- Fisherman\n- Airplane pilot");
+        ShowPlayerDialog(playerid,59,DIALOG_STYLE_MSGBOX,"Newbie Job:",string,"Ok","");
+    }
     return 1;
 }
 forward MSG_AdmInWorkCantUseThisCommand(playerid);
@@ -2487,12 +2561,14 @@ public MSG_AdmInWorkCantUseThisCommand(playerid) {
     if(idiom[playerid] == 1) SendClientMessage (playerid, -1 , "ADMs em modo de trabalho não podem fazer isso!" );
     else if(idiom[playerid] == 2) SendClientMessage (playerid, -1 , "ADMs in work mode can not do that!" );
     else if(idiom[playerid] == 3) SendClientMessage (playerid, -1 , "ADM en modo de trabajo no pueden hacer eso!" );
+    else if(idiom[playerid] == 4) SendClientMessage (playerid, -1 , "Hindi magagawa iyon ng mga ADM na nasa work mode!" );
 }
 forward MSG_YouAreNotParamedic(playerid);
 public MSG_YouAreNotParamedic(playerid) {
     if(idiom[playerid] == 1) { SendClientMessage(playerid, -1, "Você não é Paramedico!"); }
     else if(idiom[playerid] == 2) { SendClientMessage(playerid, -1, "You are not a Paramedic!"); }
     else if(idiom[playerid] == 3) { SendClientMessage(playerid, -1, "¡No eres un paramédico!"); }
+    else if(idiom[playerid] == 4) { SendClientMessage(playerid, -1, "Hindi ka Paramedic!"); }
 }
 forward MSG_CmdBlockedToVirtualWorlds(playerid);
 public MSG_CmdBlockedToVirtualWorlds(playerid) {
@@ -2506,6 +2582,9 @@ public MSG_CmdBlockedToVirtualWorlds(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof str, "¡Este comando está bloqueado para que no se use en un Mundo Virtual!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof str, "Ang command na ito ay hindi magagamit sa Virtual World!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
     if(idiom[playerid] == 1) {
         format(str, sizeof str, "saia do interior que você está para usar esse comando, se você não estiver em uma loja saia e entre de uma.");
@@ -2515,6 +2594,9 @@ public MSG_CmdBlockedToVirtualWorlds(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(str, sizeof str, "salga del interior en el que se encuentra para usar este comando, si no está en una tienda, salga e ingrese una.");
+    }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof str, "lumabas sa loob na iyong kinaroroonan upang magamit ang command na ito, kung wala ka sa isang tindahan maaring lumabas at pumasok sa iba.");
     }
     SendClientMessage(playerid, COLOR_GREY, str);
 }
@@ -2530,6 +2612,9 @@ public MSG_CmdBlockedToInteriors(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof str, "¡Este comando está bloqueado para que no se use en un Interior!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof str, "Ang command na ito ay hindi magagamit sa Interior!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
     if(idiom[playerid] == 1) {
         format(str, sizeof str, "saia do interior que você está para usar esse comando, se você não estiver em uma loja saia e entre de uma.");
@@ -2540,6 +2625,9 @@ public MSG_CmdBlockedToInteriors(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof str, "salga del interior en el que se encuentra para usar este comando, si no está en una tienda, salga e ingrese una.");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof str, "lumabas sa loob na iyong kinaroroonan upang magamit ang command na ito, kung wala ka sa isang tindahan maaring lumabas at pumasok sa iba.");
+    }
     SendClientMessage(playerid, COLOR_GREY, str);
 }
 forward MSG_PoliceApproach(playerid, targetid);
@@ -2549,6 +2637,7 @@ public MSG_PoliceApproach(playerid, targetid) {
     if(idiom[targetid] == 1) format(string, sizeof(string), "~n~~n~~n~~n~~b~Parado Policia!~w~~n~Use: /render ou você será procurado!");
     else if(idiom[targetid] == 2) format(string, sizeof(string), "~n~~n~~n~~n~~b~Stopped Police!~w~~n~Use: /render or you will be wanted!");
     else if(idiom[targetid] == 3) format(string, sizeof(string), "~n~~n~~n~~n~~b~ï¿½Policï¿½a detenida!~w~~n~Usa: /render o te buscarï¿½n.");
+    else if(idiom[targetid] == 4) format(string, sizeof(string), "~n~~n~~n~~n~~b~Itaas ang kamay at walang kikilos ng masama!~w~~n~Gamiting ang: /render o ikaw ay magiging wanted!");
     GameTextForPlayerEx(targetid, string, 30000, 3);
     // megaphone
     format(string, sizeof(string), "[MEGAPHONE] Officer %s said to %s stop! Put your hands up!!!", PlayerName(playerid), PlayerName(targetid));
@@ -2567,6 +2656,9 @@ public MSG_StartHandsupToCheck(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Levantaste las manos para que te registren, no las bajes hasta que se acabe el contador!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Itaas mo ang iyong mga kamay, wag mo ibaba hanggang sa matapos ang bilang!");    
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_ChangeBeltStats(playerid, bool:stats);
@@ -2575,11 +2667,13 @@ public MSG_ChangeBeltStats(playerid, bool:stats) {
         if(idiom[playerid] == 1) GameTextForPlayerEx(playerid, "~w~Cinto de Segurança ~g~ON", 1000, 3);
         else if(idiom[playerid] == 2) GameTextForPlayerEx(playerid, "~w~Seat Belt ~g~ON", 1000, 3);
         else if(idiom[playerid] == 3) GameTextForPlayerEx(playerid, "~w~Cinturï¿½n de Seguridad ~g~ON", 1000, 3);
+        else if(idiom[playerid] == 4) GameTextForPlayerEx(playerid, "~w~Seat Belt ~g~ON", 1000, 3);
     }
     else if(stats == false) { // off
         if(idiom[playerid] == 1) GameTextForPlayerEx(playerid, "~w~Cinto de Segurança ~r~OFF", 1000, 3);
         else if(idiom[playerid] == 2) GameTextForPlayerEx(playerid, "~w~Seat Belt ~r~OFF", 1000, 3);
         else if(idiom[playerid] == 3) GameTextForPlayerEx(playerid, "~w~Cinturón de Seguridad ~r~OFF", 1000, 3);
+        else if(idiom[playerid] == 4) GameTextForPlayerEx(playerid, "~w~Seat Belt ~r~OFF", 1000, 3);
     }
 }
 forward MSG_CantExtinguisherTargetAlive(playerid);
@@ -2597,6 +2691,10 @@ public MSG_CantExtinguisherTargetAlive(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "- para ofrecer curación a jugadores vivos, ¡usa la ambulancia!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "- perdiste 1 habilidad por usar el extintor de incendios en el jugador en vivo, si llegas a 0, ï¿½serï¿½s despedido!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- upang mag alok ng pagpapagaling sa mga buhay na manlalaro gamitin ang ambulansya!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- nawalan ka ng 1 skill para sa paggamit ng fire extinguisher sa buhay na player, if you reach 0 you will be fired!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_PauseOnJailing(playerid);
@@ -2610,6 +2708,9 @@ public MSG_PauseOnJailing(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Fuiste arrestado y castigado automáticamente por hacer una pausa mientras estabas arrestado!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Awtomatikong inaresto ka at pinarusahan dahil sa pause habang ikaw ay naaresto!");
+    }
 }
 forward MSG_PauseOnKidnapping(playerid);
 public MSG_PauseOnKidnapping(playerid) {
@@ -2622,6 +2723,9 @@ public MSG_PauseOnKidnapping(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Fuiste secuestrado y castigado automáticamente por hacer una pausa mientras estabas secuestrado!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Awtomatikong dinukot ka at pinarusahan dahil sa pause habang dinudukot!");
+    }
 }
 forward MSG_PauseOnCorruption(playerid);
 public MSG_PauseOnCorruption(playerid) {
@@ -2633,6 +2737,9 @@ public MSG_PauseOnCorruption(playerid) {
     }
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Fuiste castigado automáticamente por pausar mientras estabas en modo Corrupto!");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Awtomatikong pinarusahan ka dahil sa pag pause habang nasa Corrupt mode");
     }
 }
 forward MSG_StartedCorruption(playerid);
@@ -2651,6 +2758,11 @@ public MSG_StartedCorruption(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Cometiste un acto de corrupción como oficial de policía!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "- tenga cuidado de no ser atrapado por un miembro del FBI o la CIA");
         SendClientMessage(playerid, COLOR_LIGHTRED, "- no te desconectes del juego ni hagas una pausa en los próximos 5 minutos o serï¿½s severamente castigado.");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Nakagawa ka ng isang katiwalian bilang isang pulis!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- ingat ka na lang baka mahuli ka ng member ng FBI or CIA");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- huwag mag disconnect sa laro o mag pause sa loob ng susunod na 5 minuto o ikaw ay bibigyan mabigat na parusa.");
     }
 }
 forward MSG_EndCorruption(playerid);
