@@ -3009,6 +3009,9 @@ public MSG_IMPORTANT_SELL_HOUSE(playerid, sellValue) {
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\nEstá a punto de vender su casa al gobierno por %i$\nPor favor, escriba: 'Leí y comprendo las consecuencias' si lee todo. (es muy importante que lo leas o podrías perder tus bienes)", sellValue);
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\nNais mo nang ibenta ang bahay mo sa gobyerno sa halagang %i$\nPakisulat ang: 'I read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)", sellValue);
+    }
     ShowPlayerDialog(playerid,433,DIALOG_STYLE_INPUT,"Sell House ImportantWarning:",string,"Ok","");
 }
 forward MSG_IMPORTANT_SELL_VEHICLE(playerid, sellValue);
@@ -3022,6 +3025,9 @@ public MSG_IMPORTANT_SELL_VEHICLE(playerid, sellValue) {
     }
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\nEstá a punto de vender su vehículo al gobierno por %i$\nPor favor, escriba: 'leí y entiendo las consecuencias' si lee todo. (es muy importante que lo leas o podrías perder tus bienes)", sellValue);
+    }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\nNais mo nang ibenta ang sasakyan mo sa gobyerno sa halagang %i$\nPakisulat ang: 'I read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)", sellValue);
     }
     ShowPlayerDialog(playerid,431,DIALOG_STYLE_INPUT,"Sell Vehicle ImportantWarning:",string,"Ok","");
 }
@@ -3037,6 +3043,9 @@ public MSG_IMPORTANT_SELL_BIZZ(playerid, sellValue) {
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\nEstá a punto de vender su empresa al gobierno por %i$\nEscriba: 'Leí y comprendo las consecuencias' si lee todo. (es muy importante que lo leas o podrías perder tus bienes)", sellValue);
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\nNais mo nang ibenta ang kompanya mo sa gobyerno sa halagang %i$\nPakisulat ang: 'I read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)", sellValue);
+    }
     ShowPlayerDialog(playerid,432,DIALOG_STYLE_INPUT,"Sell Vehicle ImportantWarning:",string,"Ok","");
 }
 forward MSG_NoWalletMoneyLaudry(playerid);
@@ -3050,6 +3059,9 @@ public MSG_NoWalletMoneyLaudry(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Usted no tiene Dinero Sucio (WALLET) para lavar en este negocio!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Wala kang Dirty Money sa (WALLET) upang ilagay sa negosyong ito!");
+    }
 }
 forward MSG_NoBelt(playerid, danoplayerbatida);
 public MSG_NoBelt(playerid, danoplayerbatida) {
@@ -3060,6 +3072,8 @@ public MSG_NoBelt(playerid, danoplayerbatida) {
         format(dmgstring, sizeof(dmgstring), "~w~(WITHOUT-BELT) ~r~%i.0", danoplayerbatida );
     else if(idiom[playerid] == 3)
         format(dmgstring, sizeof(dmgstring), "~w~(SIN-CINTURON) ~r~%i.0", danoplayerbatida );
+    else if(idiom[playerid] == 4)
+        format(dmgstring, sizeof(dmgstring), "~w~(WALANG-BELT) ~r~%i.0", danoplayerbatida );
     GameTextForPlayerEx(playerid, dmgstring, 1000, 3);
 }
 forward MSG_NoBeltDmg(playerid, danoplayerbatida);
@@ -3072,6 +3086,8 @@ public MSG_NoBeltDmg(playerid, danoplayerbatida) {
         format(dmgstring, sizeof(dmgstring), "~w~(WITHOUT-BELT) ~r~%i.0", danoplayerbatida );
     else if(idiom[playerid] == 3)
         format(dmgstring, sizeof(dmgstring), "~w~(SIN-CINTURON) ~r~%i.0", danoplayerbatida );
+    else if(idiom[playerid] == 4)
+        format(dmgstring, sizeof(dmgstring), "~w~(WALANG-BELT) ~r~%i.0", danoplayerbatida );
     GameTextForPlayerEx(playerid, dmgstring, 1000, 3);
     // SendClientMessage
     if(IsAndroidPlayer(playerid) == true)
@@ -3079,12 +3095,14 @@ public MSG_NoBeltDmg(playerid, danoplayerbatida) {
         if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Aperte ~y~L-F~w~para usar o Cinto de Segurança!");
         else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "Press ~y~L-F~w~to wear your Seat Belt!");
         else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Presiona ~y~L-F~w~para usar tu Cinturón de Seguridad!");
+        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Pindutin ang ~y~L-F~w~upang suutin ang Seat Belt!");
     }
     else
     {
         if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Aperte ~y~L-CTRL~w~para usar o Cinto de Segurança!");
         else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "Press ~y~L-CTRL~w~to wear your Seat Belt!");
         else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡Presiona ~y~L-CTRL~w~para usar tu Cinturón de Seguridad!");
+        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Pindutin ang ~y~L-F~w~upang suutin ang Seat Belt!");
     }
 }
 forward MSG_BikeFallDmg(playerid, bool:withHelmet, falldmg);
@@ -3098,6 +3116,8 @@ public MSG_BikeFallDmg(playerid, bool:withHelmet, falldmg) {
             format(dmgstring, sizeof(dmgstring), "~w~(WITHOUT-HELMET) ~r~%i.0", falldmg );
         else if(idiom[playerid] == 3)
             format(dmgstring, sizeof(dmgstring), "~w~(SIN-CASCO) ~r~%i.0", falldmg );
+        else if(idiom[playerid] == 4)
+            format(dmgstring, sizeof(dmgstring), "~w~(WALANG-HELMET) ~r~%i.0", falldmg );
     }
     else
     {
@@ -3107,6 +3127,8 @@ public MSG_BikeFallDmg(playerid, bool:withHelmet, falldmg) {
             format(dmgstring, sizeof(dmgstring), "~w~(WITH-HELMET) ~r~%i.0", falldmg );
         else if(idiom[playerid] == 3)
             format(dmgstring, sizeof(dmgstring), "~w~(CON-CASCO) ~r~%i.0", falldmg );
+        else if(idiom[playerid] == 4)
+            format(dmgstring, sizeof(dmgstring), "~w~(MERONG-HELMET) ~r~%i.0", falldmg );
     }
     GameTextForPlayerEx(playerid, dmgstring, 1000, 3);
 }
@@ -3122,6 +3144,9 @@ public MSG_AddVipDays(playerid, days) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡Ha recibido %i días de VIP! Aprovecha las ventajas descritas en el comando /shop", days);
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Ikaw ay nakatangap ng %i days na VIP! Samantalahin ang mga pakinabang na inilarawan sa /shop command", days);
+    }
     SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
 forward MSG_RefferExplain(playerid);
@@ -3129,6 +3154,7 @@ public MSG_RefferExplain(playerid) {
     if(idiom[playerid] == 1)      { ShowPlayerDialog(playerid,28, DIALOG_STYLE_INPUT, "Reffer", "Algum jogador te chamou para jogar aqui?\n- se não? Deixe essa caixa em branco.\n- se sim? Coloque o nome dele no jogo na caixa!\n\n\nChame pessoas para jogar e receba recompensas assim que o seu convidado conseguir alguns pontos de experiencia\n====================================\n100 exp = 3 VIP DAYS\n200 exp = 5 VIP DAYS\n300 exp = 7 VIP DAYS\n====================================", "Yes", "No"); }
     else if(idiom[playerid] == 2) { ShowPlayerDialog(playerid,28, DIALOG_STYLE_INPUT, "Reffer", "Did any player invite you to play here?\n- if not? Leave this box blank.\n- if yes? Put his in-game name on the box!\n\n\nCall people to play and get rewards as soon as your guest gets some experience points\n=================== ===================\n100 exp = 3 VIP DAYS\n200 exp = 5 VIP DAYS\n300 exp = 7 VIP DAYS\n========== ==================================", "Yes", "No"); }
     else if(idiom[playerid] == 3) { ShowPlayerDialog(playerid,28, DIALOG_STYLE_INPUT, "Reffer", "¡Algï¿½n jugador te invitï¿½ a jugar aquï¿½?\n- si no? Deje esta casilla en blanco.\n- si es asï¿½? ï¿½Pon su nombre en el juego en la caja!\n\n\nLlama a la gente para jugar y obtï¿½n recompensas tan pronto como tu invitado obtenga algunos puntos de experiencia\n================= == ===================\n100 exp = 3 Dï¿½AS VIP\n200 exp = 5 Dï¿½AS VIP\n300 exp = 7 Dï¿½AS VIP\n====== ==== ==================================", "Yes", "No"); }
+    else if(idiom[playerid] == 4) { ShowPlayerDialog(playerid,28, DIALOG_STYLE_INPUT, "Reffer", "May nag invite ba sa iyo na player na maglaro dito?\n- Kung wala? Iwanang blangko ang kahong ito.\n- Kung meron? Ilagay ang kanyang in-game name sa kahon!\n\n\nMag-imbita at makakuha ng mga gantimpala sa lalong madaling panahon kung ang iyong bisita ay makakakuha ng sapat na experience points\n=================== ===================\n100 exp = 3 VIP DAYS\n200 exp = 5 VIP DAYS\n300 exp = 7 VIP DAYS\n========== ==================================", "Yes", "No"); }
 }
 forward MSG_WinLottery(playerid, premioValue, lotericaId);
 public MSG_WinLottery(playerid, premioValue, lotericaId) {
@@ -3141,6 +3167,9 @@ public MSG_WinLottery(playerid, premioValue, lotericaId) {
     }
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡Has ganado el premio %i$ en la loterï¿½a %i! ï¿½Ve a buscarlo! /gpsbizz %i", premioValue, lotericaId, lotericaId);
+    }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Nanalo ka sa %i$ premyo sa mga %i lottery! Pumunta at kunin ito! /gpsbizz %i", premioValue, lotericaId, lotericaId);
     }
     SendClientMessage(playerid, COLOR_LIGHTBLUE, str);
 }
@@ -3156,6 +3185,9 @@ public MSG_YourLastVehicleWasntABoat(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡El último vehículo que pilotaste no fue un BARCO!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Ang huling sasakyan na iyong minamaneho ay HINDI ISANG BANGKA!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_GzCapturedInfo(playerid);
@@ -3164,6 +3196,7 @@ public MSG_GzCapturedInfo(playerid) {
     if(idiom[playerid] == 1) format(string,sizeof(string),"Sua facção dominou um territorio!\n\nTodos os membros ganham um valor no PayDay por manter essa GangZone, se essa GangZone for bem administrada ela pode ser muito lucrativa pra você...\n\n- o lucro aumenta a cada tipo de droga no estoque da GangZone (quanto maior a variedade de drogas, maior o lucro)\n- gangzones fechadas pela policia dão metade do lucro\n- cada droga vendida o dinheiro vai pro cofre da facção\n- se outra facção dominar seu terrotorio todos as drogas do estoque da GangZone vão para o cofre da sua facção");
     else if(idiom[playerid] == 2) format(string,sizeof(string),"Your faction has dominated a territory!\n\nAll members earn a PayDay fee for maintaining this GangZone, if this GangZone is well managed it can be very profitable for you...\n\n- the profit increases with each type of drug in the GangZone stock (the greater the variety of drugs, the greater the profit)\n- gangzones closed by the police give half the profit\n- each drug sold, the money goes to the faction's vault\n- if another faction dominates your territory, all the drugs in GangZone's stockpile go to your faction's vault");
     else if(idiom[playerid] == 3) format(string,sizeof(string),"¡Tu facción ha dominado un territorio!\n\nTodos los miembros ganan una tarifa de PayDay por mantener esta GangZone, si esta GangZone está bien administrada, puede ser muy rentable para usted...\n\n- la ganancia aumenta con cada tipo de droga en el stock de GangZone (cuanto mayor sea la variedad de medicamentos, mayor será la ganancia)\n- las gangzone cerradas por la policia dan la mitad de la ganancia\n- cada droga vendida, el dinero va a la bóveda de la facción\n- si otra facción domina tu territorio, todas las drogas en la reserva de GangZone van a la bóveda de tu facción");
+    else if(idiom[playerid] == 4) format(string,sizeof(string),"Ang iyong faction ay nangingibabaw sa isang teritoryo!\n\nLahat ng miyembro ay kumikita ng PayDay fee para sa pagpapanatili ng GangZone na ito, kung ang GangZone na ito ay mahusay na pinamamahalaan maaari itong maging napaka kapaki pakinabang para sa iyo...\n\n- ang kita ay tumataas sa bawat uri ng droga sa stock ng GangZone (mas malaki ang iba't ibang uri ng droga, mas malaki ang kita)\n- ang mga gangzones na isinara ng mga pulis ay magbibigay lamang ng kalahati ng kita\n- bawat droga na ibinebenta, ang pera ay napupunta sa kaban ng faction's\n- kung ibang faction ang nangingibabaw sa teritoryo mo, lahat ng droga sa stock file ng GangZone ay napupunta sa vault ng faction mo");
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"GZ CAPTURED INFO",string,"Ok","");
 }
 forward MSG_VipBenefits_Account(playerid);
@@ -3283,6 +3316,43 @@ public MSG_VipBenefits_Account(playerid) {
         format(string, sizeof(string), "\n\n ¡y muchos otros!");
         strcat(final, string);
     }
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Mga Benepisyo sa VIP Account");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 30%% reduction sa lahat ng pinsala na matatangap");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 30%% reduction ng oras upang magsagawa ng mga aksyon sa lahat ng mga pagkilos sa server");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 2 beses na mas mabilis na pagbabawas ng addiction");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% bonus sa lahat ng progress bars");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction ng halaga na mababawas kapag ninakawan");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- mas mababa ang oras ng dying/dead sa hospital");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- mas mababa ang oras ng pag-kabilango at kidnapping");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- +50% ng sweldo sa PayDay");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- +1 skill tuwing PayDay");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- mas mababang porsyento ng SKILL loss sa kamatayan");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n\n at marami pang iba!");
+        strcat(final, string);
+    }
 
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"ACC VIP Benefits:",final,"Ok","");
 }
@@ -3367,6 +3437,32 @@ public MSG_VipBenefits_Vehicle(playerid) {
         format(string, sizeof(string), "\n- acceso a los niveles 6,7,8,9,10 de esclusas");
         strcat(final, string);
     }
+    
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Mga Benepisyo ng VIP Vehicle");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- access sa trunk slots 10,11,12,13,14,15,16,17,18,19,20");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 3x na mas mataas na limitasyon ng gas");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50% off sa presyo ng gas");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50% off sa presyo ng alarm");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- access sa alarm levels 6,7,8,9,10");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50% off sa presyo ng  locks");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- access sa levels 6,7,8,9,10 of locks");
+        strcat(final, string);
+    }
 
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"VEH VIP Benefits:",final,"Ok","");
 }
@@ -3442,6 +3538,30 @@ public MSG_VipBenefits_House(playerid) {
         format(string, sizeof(string), "\n- acceso a los niveles 6,7,8,9,10 de esclusas");
         strcat(final, string);
     }
+    
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Mga Benepisyo ng House VIP");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- doble ang house closet slots (access sa B slots)");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- ang perang mawawala ay kalahati lang ang ibabawas");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- pera mula sa PayDay fees ay kalahati lang ang ibabawas");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction sa pagsamsam ng mga materyales, droga");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50% off sa presyo ng locks");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- access sa levels 6,7,8,9,10 of locks");
+        strcat(final, string);
+    }
+
 
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"House VIP Benefits:",final,"Ok","");
 }
@@ -3526,6 +3646,32 @@ public MSG_VipBenefits_Faction(playerid) {
         format(string, sizeof(string), "\n- 50%% de reducción en el sistema de quema de dinero de la bóveda");
         strcat(final, string);
     }
+    
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Faction VIP benefits");
+        strcat(final, string);
+
+        format(string,sizeof(string),"\nPosibilidad na pamahalaan ang miyembro slots 10,11,12,13,14,15");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction ng PayDay fee (kung VIP din ang bahay, umaabot ito sa 75%%)");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction ng halagang ninakaw ng ibang players (kung VIP din ang bahay, umaabot ito sa 75%%)");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 30%% reduction sa weapon material usage para mag equip sa HQ vault");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- unlocked use of level 3 upgrade weapons");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction sa paghuli ng mga materyales, droga (kung VIP din ang bahay, umaabot ito sa 75%%)");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction sa sistema ng pagsunog ng pera mula sa vault");
+        strcat(final, string);
+    }
 
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"Faction VIP Benefits:",final,"Ok","");
 }
@@ -3583,6 +3729,23 @@ public MSG_VipBenefits_Bizz(playerid) {
         format(string, sizeof(string), "\n- reducción del 50%% en la tasa de hurto cuando la empresa no dispone de puntos de protección.");
         strcat(final, string);
     }
+    
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Bizz VIP benefits");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 3x na limitasyon ng produkto");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 3x call truckers under 100 instead of under 30");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction ng bayad na binayaran ng PayDay from bizz");
+        strcat(final, string);
+
+        format(string, sizeof(string), "\n- 50%% reduction sa rate ng pagnanakaw kapag ang kumpanya ay walang proteksiyon sa puntos.");
+        strcat(final, string);
+    }
 
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"BIZZ VIP Benefits:",final,"Ok","");
 }
@@ -3598,6 +3761,9 @@ public MSG_HouseVIPBlockSlotB(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡Las tragamonedas 'B' solo están disponibles para CASAS VIP!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "'B' slots lang ang available para sa VIP HOUSES!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_CopsCantStoreWeaponOnHouse(playerid);
@@ -3612,6 +3778,9 @@ public MSG_CopsCantStoreWeaponOnHouse(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "Los policías no pueden tener armas en casa, para cometer actos de corrupción mantengan las armas en el baúl del auto.");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Ang mga pulis ay hindi maaaring magtago ng baril sa bahay, upang gumawa ng katiwalian panatilihin ang mga baril sa trunk ng kotse.");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_NeedFactionsMembersClooser(playerid, numNeed);
@@ -3625,6 +3794,9 @@ public MSG_NeedFactionsMembersClooser(playerid, numNeed) {
     }
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡Necesitas %i miembros de tu facción cerca de ti para usar este comando!", numNeed );
+    }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Kailangan mo ng %i na miyembro ng iyong factions na malapit sa iyo upang magamit ito!", numNeed );
     }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
@@ -3643,6 +3815,10 @@ public MSG_Cuffed(playerid, targetid) {
         GameTextForPlayerEx(playerid, "~b~ESPOSADO", 2500, 3);
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "Ahora presione 'H' en un automóvil al lado del sospechoso para detenerlo.");
     }
+    else if(idiom[playerid] == 4) {
+        GameTextForPlayerEx(playerid, "~b~CUFFED", 2500, 3);
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "Ngayon pindutin ang 'H' sa isang kotse sa tabi ng suspek para pigilan ito.");
+    }
     // targetid
     if(idiom[targetid] == 1) {
         GameTextForPlayerEx(targetid, "~b~ALGEMADO", 2500, 3);
@@ -3656,6 +3832,10 @@ public MSG_Cuffed(playerid, targetid) {
         GameTextForPlayerEx(targetid, "~b~ESPOSADO", 2500, 3);
         SendClientMessage(targetid, COLOR_LIGHTRED, "Está siendo arrestado, no cierre la sesión ni haga una pausa mientras está esposado o será severamente castigado.");
     }
+    else if(idiom[targetid] == 4) {
+        GameTextForPlayerEx(targetid, "~b~CUFFED", 2500, 3);
+        SendClientMessage(targetid, COLOR_LIGHTRED, "Ikaw ay naaresto, huwag mag log off o mag pause habang ikaw ay naka-posas o ikaw ay maparusahan.");
+    }
 }
 forward MSG_CuffedInIntType(playerid, targetid);
 public MSG_CuffedInIntType(playerid, targetid) {
@@ -3663,22 +3843,26 @@ public MSG_CuffedInIntType(playerid, targetid) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Esse jogador será jogado para fora do interior automaticamente em 5 segundos.");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "That player will be thrown out of the interior automatically in 5 seconds.");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "Ese jugador será expulsado del interior automáticamente en 5 segundos.");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Ang player na ito ay awtomatikong itatapon sa labas ng interior sa loob ng 5 segundo.");
     // targetid
     if(idiom[targetid] == 1) SendClientMessage(targetid, COLOR_LIGHTRED, "Saia antes para não ficar preso na mesma posição e ja vai preparando a viatura.");
     else if(idiom[targetid] == 2) SendClientMessage(targetid, COLOR_LIGHTRED, "Get out beforehand so you don't get stuck in the same position and get the car ready.");
     else if(idiom[targetid] == 3) SendClientMessage(targetid, COLOR_LIGHTRED, "Sal antes para no quedarte atascado en la misma posición y prepara el coche.");
+    else if(idiom[targetid] == 4) SendClientMessage(targetid, COLOR_LIGHTRED, "Lumabas ka muna upang hindi ka ma stuck sa parehong posisyon at ihanda ang kotse.");
 }
 forward MSG_ThrowCuffedInIntType(playerid);
 public MSG_ThrowCuffedInIntType(playerid) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Meliante arrastado para fora do interior.");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Miscreant dragged out of the interior.");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Meliante arrastado para foros de interior.");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTBLUE, "Miscreant kinaladkad palabas ng loob.");
 }
 forward MSG_CantUseCommandInYourself(playerid);
 public MSG_CantUseCommandInYourself(playerid) {
     if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você não pode usar esse comando em você mesmo!");
     else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You cannot use this command on yourself!");
     else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "¡No puedes usar este comando en ti mismo!");
+    else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Hindi mo maaaring gamitin ang command na ito sa iyong sarili!");
 }
 forward MSG_LimitSampVehicle(playerid);
 public MSG_LimitSampVehicle(playerid) {
@@ -3696,6 +3880,9 @@ public MSG_NoRentVehiclesOffClooser(playerid) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡No hay vehículos FUERA DE ALQUILER cerca de usted para remolcar!");
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Walang mga OFF RENTAL na sasakyan na malapit sa iyo upang i-Tow!");
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_NoTowedVehicle(playerid);
@@ -3709,6 +3896,9 @@ public MSG_NoTowedVehicle(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "¡No tienes vehículos remolcados para remolcar!");
+    }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Wala kang anumang mga hinila na sasakyan upang mag tow!");
     }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
@@ -3726,6 +3916,10 @@ public MSG_DismantleKeysSucess(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "¡Desmantelaste la llave del vehículo robado que tenías!");
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "- ya no le debes nada a la policía ni a los bandidos, su sistema de combate ha vuelto a la normalidad.");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "Binuwag mo ang ninakaw na susi ng sasakyan na mayroon ka!");
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "- wala ka nang utang na loob sa pulis at sa mga bandido, bumalik na sa normal ang kanyang combat system.");
+    }
 }
 forward MSG_DismantleKeysFail(playerid);
 public MSG_DismantleKeysFail(playerid) {
@@ -3740,6 +3934,10 @@ public MSG_DismantleKeysFail(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "No tienes ninguna llave de vehículo robada para desmantelar aquí.");
         SendClientMessage(playerid, COLOR_LIGHTRED, "- para volver a montar un vehículo, presione 'H' en lugar de 'Y'");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Wala kang anumang ninakaw na susi ng sasakyan upang i dismantle dito.");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- upang muling isaayos ang isang sasakyan pindutin ang 'H' sa halip na 'Y'");
     }
 }
 forward MSG_CantWalkHandsup(playerid);
@@ -3756,6 +3954,10 @@ public MSG_CantWalkHandsup(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡No puedes caminar mientras estás RENDERIZADO!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "Presione 'F' o escriba '/f' para detener RENDERED.");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Hindi ka makalakad habang naka taas ang KAMAY!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Pindutin ang 'F' or type '/f' para matigil ang pagtaas ng kamay.");
+    }
 }
 forward MSG_CantWalkFreezed(playerid);
 public MSG_CantWalkFreezed(playerid) {
@@ -3767,6 +3969,9 @@ public MSG_CantWalkFreezed(playerid) {
     }
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡No puedes caminar mientras estás RENDERIZADO!");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Hindi ka maaaring maglakad habang FROZEN!");
     }
 }
 forward MSG_TutorialJob(playerid, jobid);
@@ -3780,11 +3985,17 @@ public MSG_TutorialJob(playerid, jobid) {
         }
         else if(idiom[playerid] == 2)
         {
-
+            format(str, sizeof(str), "{FFFFFF}To work as a Bus Driver: do BLA, press BLA");
+            strcat(final, str);
         }
         else if(idiom[playerid] == 3)
         {
 
+        }
+        else if(idiom[playerid] == 4)
+        {
+            format(str, sizeof(str), "{FFFFFF}Upang magtrabaho bilang isang Bus Driver: do BLA, press BLA");
+            strcat(final, str);
         }
     }
     else if(jobid == 2) { // motoboy
@@ -3843,6 +4054,9 @@ public MSG_NeedToBeAtLeastOnMissionId(playerid, missionid, playermission) {
     else if(idiom[playerid] == 3) {
         format(str, sizeof(str), "Para usar este comando, debe haber pasado al menos la ID DE LA MISIÓN: [%i]. (uso: /mision)", missionid, playermission);
     }
+    else if(idiom[playerid] == 4) {
+        format(str, sizeof(str), "Upang magamit ang command na ito dapat nakapasa ka na sa MISSION ID: [%i]. (use: /mission)", missionid, playermission);
+    }
     SendClientMessage(playerid, COLOR_LIGHTRED, str);
 }
 forward MSG_CantCkThisPlayer(playerid);
@@ -3899,6 +4113,23 @@ public MSG_CantCkThisPlayer(playerid) {
         format(str, sizeof(str), "\n- estar atado por una cuerda");
         strcat(final, str);
     }
+    else if(idiom[playerid] == 4)
+    {
+        format(str, sizeof(str), "{FFFFFF}Hindi maaaring kumuha ng CK ang player na ito, para sa isang player na kumuha ng CK dapat may isa siya sa mga kondisyong ito:");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat naaresto ka sa PayDay na ito");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat pinatay ka ng hindi ka na-tuluyan sa PayDay na ito");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat nasa loob ng isang GangZone");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat gumawa ng katiwalian");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat lubos na hinahangad (pula o kulay abo na pangalan)");
+        strcat(final, str);
+        format(str, sizeof(str), "\n- dapat nakatali sa pamamagitan ng lubid");
+        strcat(final, str);
+    }
 }
 forward MSG_InvestigationPhoto(killerONid, bool:isDeathCK);
 public MSG_InvestigationPhoto(killerONid, bool:isDeathCK) {
@@ -3907,11 +4138,13 @@ public MSG_InvestigationPhoto(killerONid, bool:isDeathCK) {
         if(idiom[killerONid] == 1) format(string, sizeof(string), "[Investigação do FBI] Um corpo foi encontrado e você era culpado do assassinato");
         else if(idiom[killerONid] == 2) format(string, sizeof(string), "[FBI Investigation] A body was found and you were guilty of the murder");
         else if(idiom[killerONid] == 3) format(string, sizeof(string), "[Investigación del FBI] Se encontró un cuerpo y usted era culpable del asesinato");
+        else if(idiom[killerONid] == 4) format(string, sizeof(string), "[FBI Investigation] Isang bangkay ang natagpuan at ikaw ang may kasalanan sa pagpatay");
     }
     else {
         if(idiom[killerONid] == 1) format(string, sizeof(string), "[Investigação do FBI] Um corpo foi encontrado e você era culpado do assassinato BRUTAL");
         else if(idiom[killerONid] == 2) format(string, sizeof(string), "[FBI Investigation] A body was found and you were guilty of the BRUTAL murder");
         else if(idiom[killerONid] == 3) format(string, sizeof(string), "[Investigación del FBI] Se encontró un cuerpo y usted era culpable del asesinato BRUTAL");
+        else if(idiom[killerONid] == 4) format(string, sizeof(string), "[FBI Investigation] Isang bangkay ang natagpuan at ikaw ang may kasalanan sa BRUTAL na pagpatay");
     }
     SendClientMessage(killerONid, COLOR_LIGHTRED, string);
 }
@@ -3926,6 +4159,9 @@ stock STR_AnimDialogMenu(playerid) {
     else if(idiom[playerid] == 3) {
         format(string, sizeof(string), "Manos arriba\nPositivo\nNegativo\nInactivo\nSentado\nBailando\nDándose la mano (DOBLE)\nBesando (DOBLE)\nSexo (DOBLE)\nAdiós\n| LISTA DE ANIMALES |\n| AJUSTES |");
     }
+    else if(idiom[playerid] == 4) {
+        format(string, sizeof(string), "Hands up\nPositive\nNegative\nIdle\nSitting\nDancing\nShaking hands (DOUBLE)\nKissing (DOUBLE)\nSex (DOUBLE)\nBye\n| ANIM LIST |\n| SETTINGS |");
+    }
     return string;
 }
 forward MSG_ReagiuPraSerAlgemado(playerid);
@@ -3934,6 +4170,7 @@ public MSG_ReagiuPraSerAlgemado(playerid) {
     if(idiom[playerid] == 1) format(string, sizeof(string), "[REAGIU A PRISÃO] Você não se rendeu antes de ser algemado e será punido em DINHEIRO e MAIS TEMPO PRESO por causa disso.");
     else if(idiom[playerid] == 2) format(string, sizeof(string), "[REACTED TO ARREST] You didn't surrender before you were handcuffed and you will be punished in CASH and MORE TIME IN PRISION for it.");
     else if(idiom[playerid] == 3) format(string, sizeof(string), "[REACCIONÓ AL ARRESTADO] No te rendiste antes de ser esposado y serás sancionado en EFECTIVO y MÁS TIEMPO EN PRISIÓN por ello.");
+    else if(idiom[playerid] == 4) format(string, sizeof(string), "[REACTED TO ARREST] Hindi ka sumuko bago ka napusasan at mapaparusahan ka ng CASH at mas maraming oras sa bilangguan para dito.");
     SendClientMessage(playerid, COLOR_LIGHTRED, string);
 }
 forward MSG_LicenseCenterDialog(playerid);
@@ -3998,11 +4235,13 @@ public MSG_LicenseCenterDialog(playerid) {
         if(idiom[playerid] == 1) format(string,sizeof(string),"Licença de Veiculos Terrestre %s (%i$)\nLicença Marítima (1000$)\nLicença Aérea (%i$)\n%s Porte de Armas (%i$)", lterrestrename, lterrestreprice, laeriaprice, portename, porteprice);
         else if(idiom[playerid] == 2) format(string,sizeof(string),"Land Vehicle License %s (%i$)\nMarine License (1000$)\nAir License (%i$)\n%s Possession of Arms (%i$)", lterrestrename, lterrestreprice, laeriaprice, portename, porteprice);
         else if(idiom[playerid] == 3) format(string,sizeof(string),"Licencia de Vehículo Terrestre %s (%i$)\nLicencia Marítima (1000$)\nLicencia Aérea (%i$)\n%s Posesión de Armas (%i$)", lterrestrename, lterrestreprice, laeriaprice, portename, porteprice);
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"Lisensya ng Sasakyan sa Lupa %s (%i$)\nLisensya sa Dagat (1000$)\nLisensya sa Himpapawid (%i$)\n%s Pag-aari ng mga Armas (%i$)", lterrestrename, lterrestreprice, laeriaprice, portename, porteprice);
     }
     else {
         if(idiom[playerid] == 1) format(string,sizeof(string),"Licença de Veiculos Terrestre %s (%i$)\nLicença Marítima (1000$)\nLicença Aérea (%i$)", lterrestrename, lterrestreprice, laeriaprice);
         else if(idiom[playerid] == 2) format(string,sizeof(string),"Ground License %s (%i$)\nMarine License (1000$)\nAir License (%i$)", lterrestrename, lterrestreprice, laeriaprice);
         else if(idiom[playerid] == 3) format(string,sizeof(string),"Licencia de Vehículo Terrestre %s (%i$)\nLicencia Marítima (1000$)\nLicencia Aérea (%i$)", lterrestrename, lterrestreprice, laeriaprice);
+        else if(idiom[playerid] == 4) format(string,sizeof(string),"Lisensya sa Lupa %s (%i$)\nLisensya sa Dagat (1000$)\nLisensya sa Himpapawid (%i$)", lterrestrename, lterrestreprice, laeriaprice);
     }
     ShowPlayerDialog(playerid, 16, DIALOG_STYLE_LIST, "LICENSES CENTER MENU", string, "Select", "Cancel");
 }
@@ -4012,6 +4251,7 @@ public MSG_CantStoreMeleeGunTrunk(playerid) {
     if(idiom[playerid] == 1) format(string, sizeof(string), "Você não pode guardar uma arma branca no porta malas!");
     else if(idiom[playerid] == 2) format(string, sizeof(string), "You can't keep a melee weapon in your trunk!");
     else if(idiom[playerid] == 3) format(string, sizeof(string), "¡No puedes guardar un arma cuerpo a cuerpo en tu baúl!");
+    else if(idiom[playerid] == 4) format(string, sizeof(string), "Hindi mo maaaring ilagay ang isang melee weapon sa iyong trunk!");
     SendClientMessage(playerid, COLOR_LIGHTRED, string);
 }
 forward MSG_CantKillOnP2(playerid, targetid);
@@ -4020,12 +4260,14 @@ public MSG_CantKillOnP2(playerid, targetid) {
     if(idiom[playerid] == 1) format(string, sizeof(string), "Você não pode matar um jogador de P2");
     else if(idiom[playerid] == 2) format(string, sizeof(string), "You cannot kill a P2 player");
     else if(idiom[playerid] == 3) format(string, sizeof(string), "No puedes matar a un jugador P2");
+    else if(idiom[playerid] == 4) format(string, sizeof(string), "Hindi ka maaaring pumatay ng isang P2 player");
     SendClientMessage(playerid, COLOR_LIGHTRED, string);
     if(GetPlayerState(targetid) == PLAYER_STATE_DRIVER || GetPlayerState(targetid) == PLAYER_STATE_PASSENGER)
     {
         if(idiom[playerid] == 1) format(string, sizeof(string), "- destrua a lataria do veículo desse jogador, que o veículo irá destrancar.");
         else if(idiom[playerid] == 2) format(string, sizeof(string), "- destroy the bodywork of that player's vehicle, which the vehicle will unlock.");
         else if(idiom[playerid] == 3) format(string, sizeof(string), "- destruir la carrocería del vehículo de ese jugador, que el vehículo desbloqueará.");
+        else if(idiom[playerid] == 4) format(string, sizeof(string), "- sirain ang bodywork ng sasakyan ng player na iyon, na kung saan ang sasakyan ay maaring i unlock.");
         SendClientMessage(playerid, COLOR_LIGHTRED, string);
     }
 }
@@ -4035,15 +4277,18 @@ public MSG_VoiceLoginInfo(playerid, adminLvl, hasVoiceOnClient, bool:mobile) {
         if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Você não tem o plugin do VOICE instalado no seu GTA, então não vai conseguir ouvir nem falar com outros jogadores.");
         else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "You don't have the VOICE plugin installed in your GTA, so you won't be able to hear or talk to other players.");
         else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "No tienes el complemento VOICE instalado en tu GTA, por lo que no podrás escuchar ni hablar con otros jugadores.");
+        else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Wala kang naka install na plugin ng VOICE sa iyong GTA, kaya hindi ka makakarinig o makakausap ng ibang players.");
         if(mobile == true) {
             if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Instale um APK que tenha suporte ao VOIP (para ajudar: /discord)");
             else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "Install an APK that supports VOIP (to help: /discord)");
             else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "Instale un APK que admita VOIP (para ayudar: /discord)");
+            else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Mag install ng isang APK na sumusuporta sa VOIP (para makatulong: /discord)");
         }
         else if(mobile == false) {
             if(idiom[playerid] == 1) SendClientMessage(playerid, COLOR_LIGHTRED, "Instale os arquivos de mod do VOIP na pasta do seu GTA (para ajudar: /discord)");
             else if(idiom[playerid] == 2) SendClientMessage(playerid, COLOR_LIGHTRED, "Install VOIP mod files in your GTA folder (to help: /discord)");
             else if(idiom[playerid] == 3) SendClientMessage(playerid, COLOR_LIGHTRED, "Instale archivos mod VOIP en su carpeta GTA (para ayudar: /discord)");
+            else if(idiom[playerid] == 4) SendClientMessage(playerid, COLOR_LIGHTRED, "Mag install ng mga file ng mod ng VOIP sa iyong folder ng GTA (to help: /discord)");
         }
     }
     else if(hasVoiceOnClient == 2) {
