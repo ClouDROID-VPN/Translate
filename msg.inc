@@ -2776,6 +2776,9 @@ public MSG_EndCorruption(playerid) {
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTBLUE, "¡Tu acto de corrupción ha terminado! Ya no le debes nada a la justicia...");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTBLUE, "Tapos na ang iyong pagkilos ng katiwalian! Wala ka nang utang na loob sa hustisya...");
+    }
 }
 forward MSG_AlreadyCommittingCorruption(playerid);
 public MSG_AlreadyCommittingCorruption(playerid) {
@@ -2787,6 +2790,9 @@ public MSG_AlreadyCommittingCorruption(playerid) {
     }
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Ya estás cometiendo corrupción, espera para realizar esta acción nuevamente!");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Gumagawa ka na ng katiwalian, Maghintay upang maisagawa muli ang aksyong ito!");
     }
 }
 forward MSG_GlobalSave(playerid);
@@ -2800,6 +2806,9 @@ public MSG_GlobalSave(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"[GLOBAL-SAVE] ¡El servidor se reiniciará para el guardado global!");
+    }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"[GLOBAL-SAVE] Ang server ay mag-restart sa loob lamang ng ilang minuto!");
     }
     SendClientMessage(playerid, COLOR_LIGHTRED, string);
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"GLOBAL SAVE MSG",string,"Ok","");
@@ -2820,6 +2829,11 @@ public MSG_PlayerOnfootSpeedHack(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Velocidad máxima al caminar alcanzada! ¡Posible ANIM HACK DETECTADO!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Tu animación de GTA puede estar dándote una ventaja de velocidad de pie!");
         SendClientMessage(playerid, COLOR_LIGHTRED, "Deberías cambiarlo por el original, si no sabes cómo hacerlo, pide ayuda en /discord o /forum");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Naabot ang maximum na bilis ng paglalakad! Posibleng ANIM HACK DETECTED!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Ang iyong GTA animation ay maaaring nagbibigay sa iyo ng isang bentahe sa bilis ng paa!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Dapat palitan mo na lang ng original, kung hindi mo alam kung paano gawin iyon, humingi ng tulong sa /discord o /forum");
     }
 }
 forward MSG_PlayerOnVehicleSpeedHack(playerid);
@@ -2842,6 +2856,12 @@ public MSG_PlayerOnVehicleSpeedHack(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "Debes cambiarlo por el original, si no sabes como hacerlo pide ayuda en /discord o /forum");
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Carrocería reducida! ¡Desacelerar!");
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Maximum na bilis ng sasakyang ito ay lumampas! Posibleng VEHICLE SPEED HACK DETECTED!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Ang bilis ng sasakyang ito sa iyong GTA ay maaaring nagbibigay sa iyo ng isang kalamangan sa orihinal at tamang bilis!");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Dapat palitan mo na lang ng original, kung hindi mo alam kung paano gawin iyon, humingi ng tulong sa /discord o /forum");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Reduced bodywork! Slow down!");
+    }
 }
 forward MSG_DestroyRentedVehicle(playerid);
 public MSG_DestroyRentedVehicle(playerid) {
@@ -2855,6 +2875,10 @@ public MSG_DestroyRentedVehicle(playerid) {
     }
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "Su vehï¿½culo de alquiler no ha sido renovado y ha sido devuelto");
+        MSG_RentVehicleReturn(playerid);
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Hindi pa narenew ang iyong rental vehicle at naibalik na");
         MSG_RentVehicleReturn(playerid);
     }
 }
@@ -2872,6 +2896,10 @@ public MSG_OnNoobRentRentedVehicle(playerid) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "¡Has alquilado un vehículo temporal!");
         MSG_RentVehicleReturn(playerid);
     }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "Nagrenta ka na ng pansamantalang sasakyan!");
+        MSG_RentVehicleReturn(playerid);
+    }
 }
 forward MSG_RentVehicleReturn(playerid);
 public MSG_RentVehicleReturn(playerid) {
@@ -2881,19 +2909,24 @@ public MSG_RentVehicleReturn(playerid) {
     }
     else if(idiom[playerid] == 2) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "- return times are: 02:00 and 14:00");
-        SendClientMessage(playerid, COLOR_LIGHTRED, "- you can buy a car dealership to avoid this");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- you can buy a car in dealership to avoid this");
     }
     else if(idiom[playerid] == 3) {
         SendClientMessage(playerid, COLOR_LIGHTRED, "- los horarios de regreso son: 02:00 y 14:00");
         SendClientMessage(playerid, COLOR_LIGHTRED, "- puede comprar un concesionario de automóviles para evitar esto");
+    }
+    else if(idiom[playerid] == 4) {
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- mga oras ng pagbabalik ay: 02:00 and 14:00");
+        SendClientMessage(playerid, COLOR_LIGHTRED, "- pwede ka bumili ng kotse sa dealership para maiwasan ito");
     }
 }
 forward MSG_Jailed(playerid, bankMoney);
 public MSG_Jailed(playerid, bankMoney) {
     new string[512];
     if(idiom[playerid] == 1) format(string,sizeof(string),"--- NÍVEL DE PROCURADO ---\n\nSeu nível de procurado é adicionado automaticamente quando um policial vá você cometendo um crime\nnão é o policial que te coloca como procurado e sim o servidor\no policial só sabe que você é procurado pela cor no seu nome\n\n--- DINHEIRO ---\n\nSeu dinheiro foi automaticamente depositado no banco quando você foi capturado.\nSaldo no banco: [%i]", bankMoney);
-    else if(idiom[playerid] == 2) format(string,sizeof(string),"--- WANTED LEVEL ---\n\nYour wanted level is automatically added when a police officer sees you committing a crime\nit is not the police officer who puts you as wanted but the server\nthe police officer only knows that you are wanted by the color in your name\n\n--- MONEY ---\n\nYour money was automatically deposited in the bank when you were captured.\nBank balance: [%i]", bankMoney);
+    else if(idiom[playerid] == 2) format(string,sizeof(string),"--- WANTED LEVEL ---\n\nYour wanted level is automatically added when a police officer sees you committing a crime\nit is not the police officer who puts you as wanted but the server\nthe police officer only knows that you are wanted by the color in your name\n\n--- MONEY ---\n\nYour money was automatically deposited in the bank when you were arrested.\nBank balance: [%i]", bankMoney);
     else if(idiom[playerid] == 3) format(string,sizeof(string),"--- NIVEL DE BUSQUEDA ---\n\nTu nivel de buscado se agrega automï¿½ticamente cuando un oficial de policï¿½a te ve cometiendo un delito\nno es el oficial de policï¿½a quien te pone como buscado sino el servidor\nel oficial de policï¿½a solo sabe que eres buscado por el color de tu nombre\n\n--- DINERO ---\n\nTu dinero se depositï¿½ automï¿½ticamente en el banco cuando te capturaron.\nSaldo bancario: [%i]", bankMoney);
+    else if(idiom[playerid] == 4) format(string,sizeof(string),"--- WANTED LEVEL ---\n\nAng iyong wanted level ay awtomatikong idinagdag kapag nakita ka ng isang pulis na gumagawa ng krimen\nhindi pulis ang naglalagay sa iyong bilang ng wanted kundi ang server\nang alam lang ng pulis ay wanted ka sa kulay sa pangalan mo\n\n--- MONEY ---\n\nKusang naideposito sa bangko ang pera mo nang arestuhin ka.\nBank balance: [%i]", bankMoney);
     ShowPlayerDialog(playerid,20000,DIALOG_STYLE_MSGBOX,"MSG JAIL",string,"Ok","");
 }
 forward MSG_IMPORTANT_BUY_FACTION(playerid);
@@ -2907,6 +2940,9 @@ public MSG_IMPORTANT_BUY_FACTION(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"Deje el dinero en la caja fuerte de la facción si esto borra la facción se elimina la facción\nEl dinero en la caja fuerte se reduce todos los días de pago, en robos a la sede y operaciones policiales, así que defienda su sede\nEscriba: 'He leído y comprendido las consecuencias' si lees todo! (es muy importante que leas o podrías perder tus bienes)");
+    }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mag iwan ng pera sa kaban ng faction's kung ito ang ay maubos sa faction ang faction ay mabubura\nThe money in the vault is decreased every PayDay, in HQ robberies and Police Operations, so defend your HQ\nWrite: 'i read and understand the consequences' if You read everything ! (there is very important that you read or you could lose your goods)");
     }
     ShowPlayerDialog(playerid,93,DIALOG_STYLE_INPUT,"Buy Faction Important Warning:",string,"Ok","");
 }
@@ -2922,6 +2958,9 @@ public MSG_IMPORTANT_BUY_VEHICLE(playerid) {
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\nAlmacenar/recoger su vehículo en un domicilio/sede central/garaje público\nLos vehículos que no hayan sido recogidos de los talleres durante más de 6 meses se eliminarán automáticamente.\nEscriba: 'Leí y entiendo las consecuencias' si leyó todo ! (es muy importante que lo leas o podrías perder tus bienes)");
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\nIimbak/dalhin ang iyong kotse sa isang Bahay/HQ/Pang-publikong garahe\nMga sasakyan na hindi nakuha mula sa mga garahe nang higit sa 6 na buwan ay awtomatikong mabubura.\nIsulat ang: 'I have read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)");
+    }
     ShowPlayerDialog(playerid,92,DIALOG_STYLE_INPUT,"Vehicle Buy ImportantWarning:",string,"Ok","");
 }
 forward MSG_IMPORTANT_BUY_HOUSE(playerid);
@@ -2936,6 +2975,9 @@ public MSG_IMPORTANT_BUY_HOUSE(playerid) {
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\n1) Ahorre dinero dentro de su casa para pagar las cuentas...\nSi su casa no tiene suficiente para pagar las cuentas, perderá la casa\n\n2) recibió 3 alarmas para la casa, compre alarmas y ¡aumenta el nivel de tu cerradura para que tu casa esté segura!\nEscribe: 'lee y comprende las consecuencias' si lees todo. (es muy importante que lo leas o podrías perder tus bienes)");
     }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\n1) Mag ipon ng pera sa loob ng iyong bahay upang bayaran ang mga bayarin...\nKung walang sapat na pera ang bahay mo para bayaran ang mga bayarin Mawawala sa iyo ang bahay\n\n2) Nakatanggap ka ng 3 alarma sa bahay, bumili ng mga alarma at dagdagan ang antas ng iyong lock para safe ang bahay mo!\nIsulat ang: 'I read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)");
+    }
     ShowPlayerDialog(playerid,91,DIALOG_STYLE_INPUT,"Buy House ImportantWarning:",string,"Ok","");
 }
 forward MSG_IMPORTANT_BUY_BIZZ(playerid);
@@ -2949,6 +2991,9 @@ public MSG_IMPORTANT_BUY_BIZZ(playerid) {
     }
     else if(idiom[playerid] == 3) {
         format(string,sizeof(string),"¡Aviso importante!\nAhorre dinero dentro de su empresa para pagar las facturas...\nSi su casa no tiene suficiente para pagar las facturas perderá la empresa\n\nEscriba: 'Leí y entiendo las consecuencias' si lee ¡todo! (es muy importante que lo leas o podrías perder tus bienes)");
+    }
+    else if(idiom[playerid] == 4) {
+        format(string,sizeof(string),"Mahalagang abiso!\nMag ipon ng pera sa loob ng iyong kumpanya upang bayaran ang mga bayarin...\nKung ang iyong kumpanya ay walang sapat na pera upang bayaran ang mga bayarin mawawala ka sa kumpanya\n\nIsulat ang: 'I read and understand the consequences' kung nabasa mo ang lahat! (Ito ay napakahalaga na mabasa mo o maaari mong mawala ang iyong mga ari arian)");
     }
     ShowPlayerDialog(playerid,94,DIALOG_STYLE_INPUT,"Buy Bizz ImportantWarning:",string,"Ok","");
 }
